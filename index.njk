@@ -1,0 +1,171 @@
+---
+layout: base.njk
+title: Детейлинг автомобиля
+---
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__slider" id="heroSlider">
+    {% for slide in pagedata.hero.slides %}
+    <div class="hero__slide {% if loop.first %}hero__slide--active{% endif %}" style="background-image: url('{{ slide.bg }}')">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <button class="hero__cta-btn js-open-modal">Записаться</button>
+        <h1>{{ slide.title }}</h1>
+        <p>{{ slide.subtitle }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="hero__controls">
+    <span class="hero__counter" id="heroCounter">1 / {{ pagedata.hero.slides | length }}</span>
+    <button class="hero__btn hero__btn--prev" id="heroPrev" aria-label="Назад">←</button>
+    <button class="hero__btn hero__btn--next" id="heroNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats__inner">
+    {% for stat in pagedata.stats %}
+    <div class="stats__item">
+      <span class="stats__value">{{ stat.value }}</span>
+      <span class="stats__label">{{ stat.label }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services__header">
+    <h2 class="section-title">// Услуги</h2>
+    <p class="services__desc">Предлагаем вам широкий спектр по защите и уходу за вашим автомобилем</p>
+  </div>
+  <div class="services__grid">
+    {% for service in nav.services %}
+    {% set idx = loop.index0 %}
+    <div class="service-card" style="background-image: url('{{ pagedata.services[idx].img }}')">
+      <a href="/{{ service.slug }}" class="service-card__link" aria-label="{{ service.name }}"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">{{ service.name }}</span>
+      {% if service.subservices | length > 0 %}
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">{{ service.name }}</span>
+        <ul class="service-card__subs">
+          {% for sub in service.subservices %}
+          <li><a href="/{{ sub.slug }}">{{ sub.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="cta-form">
+  <div class="cta-form__bg" style="background-image: url('{{ site.ctaBg }}')"></div>
+  <div class="cta-form__inner">
+    <div class="cta-form__content">
+      <div class="cta-form__text">
+        <h2>Рассчитать<br>стоимость</h2>
+        <p>Оставьте свой номер телефона и наш менеджер свяжется с вами в ближайшее время</p>
+      </div>
+      <form class="cta-form__form" id="ctaForm">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Номер телефона" required>
+        <label class="cta-form__checkbox">
+          <input type="checkbox" required>
+          <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn btn--outline">Получить консультацию</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews__header">
+    <h2 class="section-title">// Отзывы</h2>
+    <p>Отзывы помогают нашей команде становиться лучше, чтобы продолжать радовать вас</p>
+  </div>
+  <div class="reviews__track-wrap">
+    <div class="reviews__track" id="reviewsTrack">
+      {% for review in pagedata.reviews %}
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">{{ review.avatar }}</div>
+          <div>
+            <div class="review-card__name">{{ review.name }}</div>
+            <div class="review-card__stars">
+              {% for i in range(0, review.rating) %}★{% endfor %}
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--{{ review.source }}">
+            {% if review.source === "yandex" %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            {% else %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            {% endif %}
+          </div>
+        </div>
+        <p class="review-card__text">{{ review.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="reviews__controls">
+    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
+    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages">
+  <div class="advantages__inner">
+    <div class="advantages__header">
+      <h2 class="section-title">// О нашем детейлинге</h2>
+      <p>{{ site.name }} заработала доверие наших уважаемых клиентов из-за ряда причин, которые делают нас отличным выбором для профессиональных услуг по детейлингу.</p>
+    </div>
+    <div class="advantages__grid">
+      {% for adv in pagedata.advantages %}
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          {% if adv.icon === "crown" %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h20M3 9l4 4 5-7 5 7 4-4v10H3V9z"/></svg>
+          {% elif adv.icon === "chart" %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          {% elif adv.icon === "diamond" %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20M6 3l4 6m4 0l4-6"/></svg>
+          {% elif adv.icon === "dollar" %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          {% elif adv.icon === "shield" %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {% else %}
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          {% endif %}
+        </div>
+        <h3>{{ adv.title }}</h3>
+        <p>{{ adv.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="works__header">
+    <h2 class="section-title">// Наши работы</h2>
+  </div>
+  <div class="works__grid">
+    {% for img in pagedata.works %}
+    <div class="works__item">
+      <img src="{{ img }}" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+</section>

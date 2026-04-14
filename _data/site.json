@@ -1,0 +1,15 @@
+{
+  "name": "Ваша студия",
+  "tagline": "Профессиональный детейлинг автомобиля",
+  "phone": "+7 (000) 000-00-00",
+  "phoneHref": "tel:+70000000000",
+  "city": "Москва",
+  "address": "Москва, ул. Тверская, 13",
+  "yandexMapsEmbed": "https://yandex.ru/map-widget/v1/?ll=37.604772%2C55.763683&z=15&pt=37.604772%2C55.763683%2Cpm2rdl",
+  "workHours": "Пн–Вс: 9:00 – 20:00",
+  "vk": "https://vk.com/",
+  "telegram": "https://t.me/",
+  "telegramBot": "https://t.me/",
+  "email": "info@yourstudio.ru",
+  "ctaBg": "/images/cta-bg.jpg"
+}

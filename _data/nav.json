@@ -1,0 +1,72 @@
+{
+  "services": [
+    {
+      "name": "Оклейка пленкой",
+      "slug": "okleika",
+      "subservices": [
+        { "name": "Оклейка виниловой пленкой", "slug": "tsvetnaya-plenka" },
+        { "name": "Оклейка декоративных элементов", "slug": "okleika-dekorativnyx-elementov" },
+        { "name": "Оклейка антигравийной пленкой", "slug": "antigravijnaya-plenka" },
+        { "name": "Бронирование лобового стекла", "slug": "okleika-stekol-zashitnoi-plenkoi" }
+      ]
+    },
+    {
+      "name": "Полировка автомобиля",
+      "slug": "polirovka-avtomobilya",
+      "subservices": [
+        { "name": "Полировка кузова автомобиля", "slug": "polirovka-kuzova" },
+        { "name": "Полировка деталей салона", "slug": "polirovka-detalej-salona" }
+      ]
+    },
+    {
+      "name": "Детейлинг уход",
+      "slug": "detejling",
+      "subservices": [
+        { "name": "Химчистка салона автомобиля", "slug": "detejling-khimchistka-salona" },
+        { "name": "Уход за подкапотным пространством", "slug": "uhod-za-podkapotnym-prostranstvom" }
+      ]
+    },
+    {
+      "name": "Керамические покрытия",
+      "slug": "keramiceskie-pokrytiia",
+      "subservices": [
+        { "name": "Керамическое покрытие для кузова", "slug": "zashchitnye-pokrytiya" },
+        { "name": "Защита дисков", "slug": "zashchita-diskov" },
+        { "name": "Керамика для салона", "slug": "zashchitnye-pokrytiya-dlya-salona" },
+        { "name": "Антидождь", "slug": "antidozhd" }
+      ]
+    },
+    {
+      "name": "Пакет Антихром",
+      "slug": "antihrom",
+      "subservices": [
+        { "name": "Пакет «Антихром»", "slug": "antihrom" }
+      ]
+    },
+    {
+      "name": "Реставрация салона",
+      "slug": "remont-salona",
+      "subservices": [
+        { "name": "Реставрация салона", "slug": "restavraciya-salona" }
+      ]
+    },
+    {
+      "name": "Шумоизоляция автомобиля",
+      "slug": "vibro-shumoizolyatsiya-avtomobilya",
+      "subservices": [
+        { "name": "Шумоизоляция автомобиля", "slug": "vibro-shumoizolyatsiya-avtomobilya" }
+      ]
+    },
+    {
+      "name": "Тонировка",
+      "slug": "tonirovka",
+      "subservices": [
+        { "name": "Тонировка автомобиля", "slug": "tonirovka" }
+      ]
+    }
+  ],
+  "company": [
+    { "name": "Наши работы", "slug": "nashi-raboty" },
+    { "name": "Контакты", "slug": "kontakty" }
+  ]
+}
