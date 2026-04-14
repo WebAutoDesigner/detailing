@@ -177,9 +177,24 @@ if (modal) {
 
 // ===== BURGER MENU =====
 const burger = document.getElementById('burger');
-if (burger) {
-  burger.addEventListener('click', () => {
-    const nav = document.querySelector('.header__nav');
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-  });
-}
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+const openMobileNav = () => {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  burger.classList.add('burger--open');
+  document.body.style.overflow = 'hidden';
+};
+const closeMobileNav = () => {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  if (burger) burger.classList.remove('burger--open');
+  document.body.style.overflow = '';
+};
+
+if (burger) burger.addEventListener('click', openMobileNav);
+if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
