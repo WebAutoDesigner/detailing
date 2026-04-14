@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пакет Антихром — Ваша студия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/detailing/style.css">
+</head>
+<body class="page-subservice">
+
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <div class="header__left">
+      <a href="/detailing/" class="header__logo">Ваша студия</a>
+      <div class="header__socials">
+        <a href="https://vk.com/" class="header__social" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+        </a>
+        <a href="https://t.me/" class="header__social" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+        </a>
+      </div>
+      <span class="header__city">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Москва, ул. Тверская, 13
+      </span>
+    </div>
+
+    <nav class="header__nav">
+      <!-- Услуги -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="services">
+        <button class="nav-item__btn">Услуги <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--services">
+          <div class="dropdown__inner">
+            <ul class="dropdown__services-list">
+              
+              <li class="dropdown__service-item" data-service="0">
+                <span class="dropdown__service-name">Оклейка пленкой</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="1">
+                <span class="dropdown__service-name">Полировка автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="2">
+                <span class="dropdown__service-name">Детейлинг уход</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="3">
+                <span class="dropdown__service-name">Керамические покрытия</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="4">
+                <span class="dropdown__service-name">Пакет Антихром</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="5">
+                <span class="dropdown__service-name">Реставрация салона</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="6">
+                <span class="dropdown__service-name">Шумоизоляция автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="7">
+                <span class="dropdown__service-name">Тонировка</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+            </ul>
+            <div class="dropdown__subservices">
+              
+              <ul class="dropdown__sub-list" data-sub="0">
+                
+                <li><a href="/tsvetnaya-plenka">Оклейка виниловой пленкой</a></li>
+                
+                <li><a href="/okleika-dekorativnyx-elementov">Оклейка декоративных элементов</a></li>
+                
+                <li><a href="/antigravijnaya-plenka">Оклейка антигравийной пленкой</a></li>
+                
+                <li><a href="/okleika-stekol-zashitnoi-plenkoi">Бронирование лобового стекла</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="1">
+                
+                <li><a href="/polirovka-kuzova">Полировка кузова автомобиля</a></li>
+                
+                <li><a href="/polirovka-detalej-salona">Полировка деталей салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="2">
+                
+                <li><a href="/detejling-khimchistka-salona">Химчистка салона автомобиля</a></li>
+                
+                <li><a href="/uhod-za-podkapotnym-prostranstvom">Уход за подкапотным пространством</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="3">
+                
+                <li><a href="/zashchitnye-pokrytiya">Керамическое покрытие для кузова</a></li>
+                
+                <li><a href="/zashchita-diskov">Защита дисков</a></li>
+                
+                <li><a href="/zashchitnye-pokrytiya-dlya-salona">Керамика для салона</a></li>
+                
+                <li><a href="/antidozhd">Антидождь</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="4">
+                
+                <li><a href="/antihrom">Пакет «Антихром»</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="5">
+                
+                <li><a href="/restavraciya-salona">Реставрация салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="6">
+                
+                <li><a href="/vibro-shumoizolyatsiya-avtomobilya">Шумоизоляция автомобиля</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="7">
+                
+                <li><a href="/tonirovka">Тонировка автомобиля</a></li>
+                
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- О компании -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="company">
+        <button class="nav-item__btn">О компании <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--company">
+          <ul class="dropdown__list">
+            
+            <li><a href="/nashi-raboty">Наши работы</a></li>
+            
+            <li><a href="/kontakty">Контакты</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header__right">
+      <a href="tel:+70000000000" class="header__phone">+7 (000) 000-00-00</a>
+      <button class="header__cta" id="openModal">Связаться с нами →</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+<!-- MAIN -->
+<main>
+  
+<!-- HERO -->
+<section class="page-hero page-hero--full" style="background-image: url('/detailing/images/subhero-antihrom.jpg')">
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href="/">Главная</a>
+      <span>/</span>
+      <span>Пакет Антихром</span>
+    </div>
+    <h1>Пакет Антихром</h1>
+    <p>Замена хромированных элементов на матовые или глянцевые чёрные. Современный и агрессивный стиль вашего автомобиля.</p>
+  </div>
+</section>
+
+<!-- SUBSERVICES -->
+
+
+<!-- PRICE TABLE -->
+
+<section class="price-section" id="price">
+  <div class="price-section__inner">
+    <h2 class="section-title">// Прайс-лист на снятие хрома</h2>
+    <p class="price-note">Конкретные цены зависят от автомобиля. Точную стоимость уточняйте у менеджера.</p>
+    <div class="price-table">
+      
+      <div class="price-row">
+        <span class="price-row__name">Пакет «Антихром»*</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 63 300 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Молдинг оконный</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 3 700 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Дверная ручка</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 2 600 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Решётка радиатора (ноздри)</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 14 000 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Воздухозаборники на крыльях (жабры)</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 5 000 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Накладка крышки багажника</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 7 600 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Накладка на дверь</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 7 600 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Эмблема</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">от 2 900 ₽</span>
+      </div>
+      
+    </div>
+    <button class="btn btn--outline js-open-modal" style="margin-top: 32px;">Записаться на услугу</button>
+  </div>
+</section>
+
+
+<!-- DESCRIPTION -->
+
+<section class="service-desc">
+  <div class="service-desc__inner">
+    
+    <div class="service-desc__block">
+      <h2>Пакет «Антихром» по пластику</h2>
+      <p>Со временем любые хромированные элементы авто начинают терять свой внешний вид и покрываются коррозией. Наши специалисты разбирают деталь, удаляют хром химическим составом, затем грунтуют, красят в нужный цвет и покрывают лаком. Элементы, которые очень проблематично снять, мастера оклеивают (рейлинги крыши, нижняя часть бампера).</p>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- CTA FORM -->
+<section class="cta-form contacts-cta" id="contact-form">
+  <div class="cta-form__bg" style="background-image: url('/detailing/images/cta-bg.jpg')"></div>
+  <div class="contacts-cta__inner">
+    <h2>Рассчитать стоимость</h2>
+    <p>Оставьте свой номер телефона и наш менеджер свяжется с вами в ближайшее время</p>
+    <form class="cta-form__form" id="ctaForm">
+      <input type="hidden" name="service" value="Пакет Антихром">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Номер телефона" required>
+      <label class="cta-form__checkbox">
+        <input type="checkbox" required>
+        <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="btn btn--outline">Получить консультацию</button>
+    </form>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews__header">
+    <h2 class="section-title">// Отзывы</h2>
+    <p>Отзывы помогают нашей команде становиться лучше</p>
+  </div>
+  <div class="reviews__track-wrap">
+    <div class="reviews__track" id="reviewsTrack">
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">А</div>
+          <div>
+            <div class="review-card__name">Александр М.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Отличная работа! Сделали полировку кузова — результат превзошёл ожидания. Машина выглядит как новая. Мастера вежливые, всё объяснили.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Е</div>
+          <div>
+            <div class="review-card__name">Екатерина В.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Делала химчистку салона — очень довольна. Убрали все пятна, даже те, которые казались непоправимыми. Приятный запах, аккуратно.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Д</div>
+          <div>
+            <div class="review-card__name">Дмитрий С.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Оклейка антигравийной плёнкой — сделали быстро и качественно. Шов ровный, пузырей нет. Рекомендую всем, кто хочет защитить кузов.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">И</div>
+          <div>
+            <div class="review-card__name">Ирина Н.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Нанесли керамическое покрытие. Теперь машина отталкивает воду и грязь — мыть одно удовольствие. Работой очень довольна.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">М</div>
+          <div>
+            <div class="review-card__name">Михаил Р.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Обратился по рекомендации. Сделали шумоизоляцию — в салоне стало заметно тише. Качество работы на высоком уровне.</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class="reviews__controls">
+    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
+    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+  <div class="faq-section__inner">
+    <h2 class="section-title">// Ответы на вопросы</h2>
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">01</span>
+          <span class="faq-item__q">Сколько времени занимает процедура антихрома?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Обычно процесс занимает от 2 до 3 дней, в зависимости от количества деталей и их состояния.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">02</span>
+          <span class="faq-item__q">Можно ли выбрать любой цвет для замены хромированных деталей?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Да, мы предлагаем широкий выбор цветов и финишных покрытий, включая матовые, глянцевые и металлизированные оттенки.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">03</span>
+          <span class="faq-item__q">Повлияет ли антихром на долговечность деталей?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Нанесение антикоррозийного грунта и защитного лака увеличивает стойкость деталей к внешним воздействиям.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">04</span>
+          <span class="faq-item__q">Предоставляется ли гарантия на антихром?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Да, мы даём гарантию на работу и материалы, чтобы вы могли быть уверены в долговечности нового покрытия.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col footer__col--brand">
+      <a href="/detailing/" class="footer__logo">Ваша студия</a>
+      <p>Профессиональный детейлинг автомобиля</p>
+      <div class="footer__socials">
+        <a href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+        </a>
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>О компании</h4>
+      <ul>
+        
+        <li><a href="/nashi-raboty">Наши работы</a></li>
+        
+        <li><a href="/kontakty">Контакты</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Услуги</h4>
+      <ul>
+        
+        <li><a href="/okleika">Оклейка пленкой</a></li>
+        
+        <li><a href="/polirovka-avtomobilya">Полировка автомобиля</a></li>
+        
+        <li><a href="/detejling">Детейлинг уход</a></li>
+        
+        <li><a href="/keramiceskie-pokrytiia">Керамические покрытия</a></li>
+        
+        <li><a href="/antihrom">Пакет Антихром</a></li>
+        
+        <li><a href="/remont-salona">Реставрация салона</a></li>
+        
+        <li><a href="/vibro-shumoizolyatsiya-avtomobilya">Шумоизоляция автомобиля</a></li>
+        
+        <li><a href="/tonirovka">Тонировка</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--contacts">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li>Москва, ул. Тверская, 13</li>
+        <li>Пн–Вс: 9:00 – 20:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Ваша студия. Все права защищены.</span>
+  </div>
+</footer>
+
+
+<!-- MODAL FORM -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Заявка">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__box">
+    <button class="modal__close" id="closeModal" aria-label="Закрыть">×</button>
+    <h2 class="modal__title">Заявка на приём<br>автомобиля</h2>
+    <p class="modal__sub">Заполните форму — наш менеджер свяжется с вами</p>
+    <form class="modal__form" id="modalForm" novalidate>
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Номер телефона" required>
+      <label class="modal__checkbox">
+        <input type="checkbox" name="agree" required>
+        <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="modal__submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+
+<script src="/detailing/script.js"></script>
+</body>
+</html>
