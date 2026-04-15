@@ -466,6 +466,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hero__slide { background-size: cover; background-position: center top; }
   .hero__slide:nth-child(2) { background-image: url('images/hero-2-mobile.jpg') !important; }
   [style*="hero-2.jpg"] { background-image: url('images/hero-2-mobile.jpg') !important; }
+  .hero__slide:nth-child(3) { background-image: url('images/hero-3-mobile.jpg') !important; }
+  [style*="hero-3.jpg"] { background-image: url('images/hero-3-mobile.jpg') !important; }
+  [style*="subhero-steklo.jpg"] { background-image: url('images/subhero-steklo-mobile.jpg') !important; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
