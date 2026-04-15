@@ -424,10 +424,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .services { padding: 48px 16px; }
   .services__header { flex-direction: column; gap: 12px; }
   .services__desc { text-align: left; }
-  .services__grid { grid-template-columns: 1fr; grid-template-rows: repeat(8, 180px); }
-  .service-card__hover { display: none; }
-  .service-card.is-active .service-card__hover { display: flex; opacity: 1; transform: none; }
-  .service-card__name { opacity: 1 !important; font-size: 20px; }
+  .services__grid { grid-template-columns: 1fr; grid-template-rows: repeat(8, 243px); }
+  .service-card__link { pointer-events: none; }
+  .service-card__name { display: none; }
+  .service-card__overlay { opacity: 0.25; }
+  .service-card__hover { display: flex; opacity: 1; transform: none; background: rgba(0,0,0,0.52); }
+  .service-card__hover-title { font-size: 20px; margin-bottom: 12px; padding-bottom: 10px; }
+  .service-card__subs li a { font-size: 15px; padding: 8px 0; }
 
   /* CTA form */
   .cta-form__inner { padding: 48px 20px; }

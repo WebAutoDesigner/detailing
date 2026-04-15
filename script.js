@@ -199,24 +199,3 @@ if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
 if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
 
-// ===== SERVICE CARDS TAP (mobile) =====
-const isMobile = () => window.innerWidth <= 768;
-
-document.querySelectorAll('.service-card').forEach(card => {
-  const cardLink = card.querySelector('.service-card__link');
-  if (cardLink) {
-    cardLink.addEventListener('click', (e) => {
-      if (!isMobile()) return;
-      e.preventDefault();
-      const isActive = card.classList.contains('is-active');
-      document.querySelectorAll('.service-card.is-active').forEach(c => c.classList.remove('is-active'));
-      if (!isActive) card.classList.add('is-active');
-    });
-  }
-});
-
-document.addEventListener('click', (e) => {
-  if (isMobile() && !e.target.closest('.service-card')) {
-    document.querySelectorAll('.service-card.is-active').forEach(c => c.classList.remove('is-active'));
-  }
-});
