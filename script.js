@@ -199,3 +199,12 @@ if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
 if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
 
+// ===== VIDEO RESUME ON PAGE VISIBILITY =====
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    const video = document.querySelector('.hero__video-bg');
+    if (video) video.play().catch(() => {});
+  }
+});
+
+
