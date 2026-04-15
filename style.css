@@ -455,11 +455,11 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .footer__bottom { padding: 14px 20px; }
 
   /* Page hero */
-  .page-hero { height: 52vh; min-height: 300px; background-size: 280% auto; background-position: center top; background-repeat: no-repeat; }
-  .page-hero--full { height: 100vh; min-height: 500px; background-size: 280% auto; background-position: 40% top; background-repeat: no-repeat; }
+  .page-hero { height: 52vh; min-height: 300px; background-size: cover; background-position: center top; }
+  .page-hero--full { height: 100vh; min-height: 500px; background-size: cover; background-position: center top; }
   .page-hero__content { padding: 28px 20px; }
   .page-hero__content h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin: 8px 0; }
-  .hero__slide { background-size: 280% auto; background-position: 35% top; }
+  .hero__slide { background-size: cover; background-position: center top; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
