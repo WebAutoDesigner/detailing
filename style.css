@@ -403,7 +403,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* Header */
   .header__inner { padding: 14px 20px; }
   .header__nav { display: none; }
-  .header__socials { display: none; }
   .header__city { display: none; }
   .burger { display: flex; }
   .burger span { transition: transform 0.25s ease, opacity 0.25s ease; }
@@ -502,4 +501,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .modal__box { padding: 36px 24px; margin: 0 16px; border-radius: 16px; max-width: calc(100% - 32px); }
   .modal__title { font-size: 1.6rem; }
   .modal__sub { font-size: 14px; }
+  .modal__submit { width: 100%; }
+
+  /* Burger — минимум 44×44px для удобного тапа */
+  .burger { padding: 10px 8px; min-height: 44px; min-width: 44px; justify-content: center; }
+
+  /* iOS fix: инпуты < 16px вызывают авто-зум при фокусе */
+  .cta-form__form input[type="text"],
+  .cta-form__form input[type="tel"] { font-size: 16px; }
+  .contacts-cta .cta-form__form textarea { font-size: 16px; }
 }
