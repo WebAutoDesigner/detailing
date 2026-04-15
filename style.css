@@ -411,8 +411,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* Hero */
-  .hero__content { left: 20px; right: 20px; bottom: 80px; max-width: none; }
-  .hero__content h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .hero__content { left: 20px; right: 20px; bottom: 80px; max-width: none; display: flex; flex-direction: column; }
+  .hero__content h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); order: 1; margin-bottom: 16px; }
+  .hero__cta-btn { order: 2; align-self: flex-start; margin-bottom: 0; }
+  .hero__content p { order: 3; }
   .hero__controls { right: 16px; bottom: 20px; }
 
   /* Stats */
