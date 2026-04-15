@@ -411,10 +411,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* Hero */
-  .hero { height: 56vw; min-height: 320px; }
-  .hero__content { left: 20px; right: 20px; bottom: 48px; max-width: none; }
+  .hero__content { left: 20px; right: 20px; bottom: 80px; max-width: none; }
   .hero__content h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
-  .hero__controls { right: 16px; bottom: 12px; }
+  .hero__controls { right: 16px; bottom: 20px; }
 
   /* Stats */
   .stats__inner { padding: 20px; flex-wrap: wrap; gap: 16px; }
@@ -461,7 +460,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .page-hero__content { padding: 28px 20px; }
   .page-hero__content h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin: 8px 0; }
   .hero__slide { background-size: cover; background-position: center top; }
-  .hero__slide:nth-child(2) { background-image: url('/images/hero-2-mobile.jpg') !important; }
+  .hero__slide:nth-child(2) { background-image: url('images/hero-2-mobile.jpg') !important; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
