@@ -465,6 +465,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .page-hero__content h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin: 8px 0; }
   .hero__slide { background-size: cover; background-position: center top; }
   .hero__slide:nth-child(2) { background-image: url('images/hero-2-mobile.jpg') !important; }
+  [style*="hero-2.jpg"] { background-image: url('images/hero-2-mobile.jpg') !important; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
