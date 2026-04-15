@@ -471,6 +471,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   [style*="subhero-steklo.jpg"] { background-image: url('images/subhero-steklo-mobile.jpg') !important; }
   [style*="subhero-antigrav.jpg"] { background-image: url('images/hero-2-mobile.jpg') !important; }
   [style*="subhero-antihrom.jpg"] { background-image: url('images/subhero-antihrom-mobile.jpg') !important; }
+  [style*="cta-bg.jpg"] { background-image: url('images/cta-bg-mobile.jpg') !important; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
