@@ -469,6 +469,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hero__slide:nth-child(3) { background-image: url('images/hero-3-mobile.jpg') !important; }
   [style*="hero-3.jpg"] { background-image: url('images/hero-3-mobile.jpg') !important; }
   [style*="subhero-steklo.jpg"] { background-image: url('images/subhero-steklo-mobile.jpg') !important; }
+  [style*="subhero-antigrav.jpg"] { background-image: url('images/hero-2-mobile.jpg') !important; }
+  [style*="subhero-antihrom.jpg"] { background-image: url('images/subhero-antihrom-mobile.jpg') !important; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
