@@ -203,9 +203,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileN
 const heroVideo = document.querySelector('.hero__video-bg');
 if (heroVideo) {
   const resumeVideo = () => {
-    setTimeout(() => {
-      heroVideo.play().catch(() => {});
-    }, 300);
+    [100, 400, 800, 1500, 3000].forEach(delay => {
+      setTimeout(() => {
+        if (heroVideo.paused) heroVideo.play().catch(() => {});
+      }, delay);
+    });
   };
   heroVideo.addEventListener('pause', () => {
     if (!document.hidden) resumeVideo();
