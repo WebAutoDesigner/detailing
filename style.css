@@ -394,16 +394,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .mobile-nav__link { display: block; font-size: 15px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--white); transition: opacity 0.2s; }
 .mobile-nav__link:last-child { border-bottom: none; }
 .mobile-nav__link:hover { opacity: 0.65; }
-.mobile-nav__service { border-bottom: 1px solid rgba(255,255,255,0.06); }
-.mobile-nav__service:last-child { border-bottom: none; }
-.mobile-nav__service-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 0; font-size: 15px; color: var(--white); background: none; font-family: var(--font); cursor: pointer; text-align: left; }
-.mobile-nav__service-icon { font-size: 20px; font-weight: 300; transition: transform 0.25s; opacity: 0.45; flex-shrink: 0; }
-.mobile-nav__service.is-open .mobile-nav__service-icon { transform: rotate(45deg); opacity: 1; }
-.mobile-nav__subs { display: none; padding: 0 0 10px 14px; }
-.mobile-nav__service.is-open .mobile-nav__subs { display: block; }
-.mobile-nav__sublink { display: block; font-size: 14px; color: rgba(255,255,255,0.65); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
-.mobile-nav__sublink:last-child { border-bottom: none; }
-.mobile-nav__sublink:hover { color: var(--white); }
 .mobile-nav__footer { padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
 .mobile-nav__phone { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .mobile-nav__cta { padding: 13px 20px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--white); text-align: center; font-family: var(--font); transition: var(--transition); }
@@ -436,6 +426,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .services__desc { text-align: left; }
   .services__grid { grid-template-columns: 1fr; grid-template-rows: repeat(8, 180px); }
   .service-card__hover { display: none; }
+  .service-card.is-active .service-card__hover { display: flex; opacity: 1; transform: none; }
   .service-card__name { opacity: 1 !important; font-size: 20px; }
 
   /* CTA form */
