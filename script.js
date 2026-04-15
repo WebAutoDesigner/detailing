@@ -202,21 +202,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileN
 // ===== VIDEO RESUME ON PAGE VISIBILITY =====
 const heroVideo = document.querySelector('.hero__video-bg');
 if (heroVideo) {
-  const resumeVideo = () => {
-    [100, 400, 800, 1500, 3000].forEach(delay => {
-      setTimeout(() => {
-        if (heroVideo.paused) heroVideo.play().catch(() => {});
-      }, delay);
-    });
-  };
-  heroVideo.addEventListener('pause', () => {
-    if (!document.hidden) resumeVideo();
-  });
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') resumeVideo();
+    if (document.visibilityState === 'visible') {
+      setTimeout(() => { heroVideo.play().catch(() => {}); }, 300);
+    }
   });
-  window.addEventListener('focus', resumeVideo);
-  window.addEventListener('pageshow', resumeVideo);
 }
 
 
