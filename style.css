@@ -417,6 +417,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* Hero */
   .hero__content { left: 20px; right: 20px; bottom: 80px; max-width: none; }
   .hero__content h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .hero__cta-btn { font-size: 16px; padding: 12px 32px; }
   .hero__cta-btn--mobile { display: none; }
   .hero__controls { right: 16px; bottom: 20px; }
 
