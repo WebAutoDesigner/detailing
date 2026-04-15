@@ -202,11 +202,19 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileN
 // ===== VIDEO RESUME ON PAGE VISIBILITY =====
 const heroVideo = document.querySelector('.hero__video-bg');
 if (heroVideo) {
-  const resumeVideo = () => { if (heroVideo.paused) heroVideo.play().catch(() => {}); };
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') resumeVideo(); });
+  const resumeVideo = () => {
+    setTimeout(() => {
+      heroVideo.play().catch(() => {});
+    }, 300);
+  };
+  heroVideo.addEventListener('pause', () => {
+    if (!document.hidden) resumeVideo();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') resumeVideo();
+  });
   window.addEventListener('focus', resumeVideo);
   window.addEventListener('pageshow', resumeVideo);
-  setInterval(resumeVideo, 500);
 }
 
 
