@@ -198,3 +198,13 @@ if (burger) burger.addEventListener('click', openMobileNav);
 if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
 if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+
+// Mobile nav: service accordion
+document.querySelectorAll('.mobile-nav__service-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const service = btn.closest('.mobile-nav__service');
+    const isOpen = service.classList.contains('is-open');
+    document.querySelectorAll('.mobile-nav__service').forEach(s => s.classList.remove('is-open'));
+    if (!isOpen) service.classList.add('is-open');
+  });
+});

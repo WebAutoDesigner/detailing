@@ -394,6 +394,16 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .mobile-nav__link { display: block; font-size: 15px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--white); transition: opacity 0.2s; }
 .mobile-nav__link:last-child { border-bottom: none; }
 .mobile-nav__link:hover { opacity: 0.65; }
+.mobile-nav__service { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.mobile-nav__service:last-child { border-bottom: none; }
+.mobile-nav__service-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 0; font-size: 15px; color: var(--white); background: none; font-family: var(--font); cursor: pointer; text-align: left; }
+.mobile-nav__service-icon { font-size: 20px; font-weight: 300; transition: transform 0.25s; opacity: 0.45; flex-shrink: 0; }
+.mobile-nav__service.is-open .mobile-nav__service-icon { transform: rotate(45deg); opacity: 1; }
+.mobile-nav__subs { display: none; padding: 0 0 10px 14px; }
+.mobile-nav__service.is-open .mobile-nav__subs { display: block; }
+.mobile-nav__sublink { display: block; font-size: 14px; color: rgba(255,255,255,0.65); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+.mobile-nav__sublink:last-child { border-bottom: none; }
+.mobile-nav__sublink:hover { color: var(--white); }
 .mobile-nav__footer { padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
 .mobile-nav__phone { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .mobile-nav__cta { padding: 13px 20px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 100px; font-size: 14px; font-weight: 500; color: var(--white); text-align: center; font-family: var(--font); transition: var(--transition); }
@@ -452,11 +462,11 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .footer__bottom { padding: 14px 20px; }
 
   /* Page hero */
-  .page-hero { height: 52vh; min-height: 320px; background-position: top center; }
-  .page-hero--full { height: 90vh; min-height: 500px; background-position: 60% center; }
+  .page-hero { height: 52vh; min-height: 300px; background-size: 280% auto; background-position: center top; }
+  .page-hero--full { height: 100vh; min-height: 500px; background-size: 280% auto; background-position: 40% top; }
   .page-hero__content { padding: 28px 20px; }
   .page-hero__content h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin: 8px 0; }
-  .hero__slide { background-position: 60% center; }
+  .hero__slide { background-size: 280% auto; background-position: 35% top; }
 
   /* Price section */
   .price-section { padding: 40px 20px; }
@@ -490,7 +500,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
   /* Contacts */
   .contacts-map-section { height: auto; overflow: visible; display: block; }
-  .contacts-map-full { position: relative; inset: 0; height: 55vw; min-height: 260px; overflow: hidden; }
+  .contacts-map-full { position: relative; inset: 0; height: 66vw; min-height: 312px; overflow: hidden; }
   .contacts-card { position: relative; top: auto; right: auto; transform: none; width: 100%; border-radius: 0; padding: 32px 20px; gap: 24px; }
   .contacts-cta__inner { padding: 48px 20px; }
 
