@@ -1,0 +1,570 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полировка кузова автомобиля — Ваша студия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href=\"/detailing/v2/style.css\">
+</head>
+<body class="page-subservice">
+
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <div class="header__left">
+      <a href=\"/detailing/v2/\" class="header__logo">Ваша студия</a>
+      <div class="header__socials">
+        
+        <a href="https://vk.com/" class="header__social" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+          
+        </a>
+        
+        <a href="https://t.me/" class="header__social" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+          
+        </a>
+        
+      </div>
+      <span class="header__city">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Москва, ул. Тверская, 13
+      </span>
+    </div>
+
+    <nav class="header__nav">
+      <!-- Услуги -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="services">
+        <button class="nav-item__btn">Услуги <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--services">
+          <div class="dropdown__inner">
+            <ul class="dropdown__services-list">
+              
+              <li class="dropdown__service-item" data-service="0">
+                <span class="dropdown__service-name">Оклейка пленкой</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="1">
+                <span class="dropdown__service-name">Полировка автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="2">
+                <span class="dropdown__service-name">Детейлинг уход</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="3">
+                <span class="dropdown__service-name">Керамические покрытия</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="4">
+                <span class="dropdown__service-name">Пакет Антихром</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="5">
+                <span class="dropdown__service-name">Реставрация салона</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="6">
+                <span class="dropdown__service-name">Шумоизоляция автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="7">
+                <span class="dropdown__service-name">Тонировка автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+            </ul>
+            <div class="dropdown__subservices">
+              
+              <ul class="dropdown__sub-list" data-sub="0">
+                
+                <li><a href=\"/detailing/v2/tsvetnaya-plenka\">Оклейка виниловой пленкой</a></li>
+                
+                <li><a href=\"/detailing/v2/okleika-dekorativnyx-elementov\">Оклейка декоративных элементов</a></li>
+                
+                <li><a href=\"/detailing/v2/antigravijnaya-plenka\">Оклейка антигравийной пленкой</a></li>
+                
+                <li><a href=\"/detailing/v2/okleika-stekol-zashitnoi-plenkoi\">Бронирование лобового стекла</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="1">
+                
+                <li><a href=\"/detailing/v2/polirovka-kuzova\">Полировка кузова автомобиля</a></li>
+                
+                <li><a href=\"/detailing/v2/polirovka-detalej-salona\">Полировка деталей салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="2">
+                
+                <li><a href=\"/detailing/v2/detejling-khimchistka-salona\">Химчистка салона автомобиля</a></li>
+                
+                <li><a href=\"/detailing/v2/uhod-za-podkapotnym-prostranstvom\">Уход за подкапотным пространством</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="3">
+                
+                <li><a href=\"/detailing/v2/zashchitnye-pokrytiya\">Керамическое покрытие для кузова</a></li>
+                
+                <li><a href=\"/detailing/v2/zashchita-diskov\">Защита дисков</a></li>
+                
+                <li><a href=\"/detailing/v2/zashchitnye-pokrytiya-dlya-salona\">Керамика для салона</a></li>
+                
+                <li><a href=\"/detailing/v2/antidozhd\">Антидождь</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="4">
+                
+                <li><a href=\"/detailing/v2/antihrom-usluga\">Антихром</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="5">
+                
+                <li><a href=\"/detailing/v2/restavraciya-salona\">Реставрация салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="6">
+                
+                <li><a href=\"/detailing/v2/shumoizolyaciya-avto\">Шумоизоляция автомобиля</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="7">
+                
+                <li><a href=\"/detailing/v2/tonirovka-avto\">Тонировка автомобиля</a></li>
+                
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- О компании -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="company">
+        <button class="nav-item__btn">О компании <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--company">
+          <ul class="dropdown__list">
+            
+            <li><a href=\"/detailing/v2/nashi-raboty\">Наши работы</a></li>
+            
+            <li><a href=\"/detailing/v2/kontakty\">Контакты</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header__right">
+      <a href="tel:+70000000000" class="header__phone">+7 (000) 000-00-00</a>
+      <button class="header__cta" id="openModal">Связаться с нами →</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__overlay" id="mobileNavOverlay"></div>
+  <nav class="mobile-nav__drawer">
+    <div class="mobile-nav__head">
+      <a href=\"/detailing/v2/\" class="mobile-nav__logo">Ваша студия</a>
+      <button class="mobile-nav__close" id="mobileNavClose">×</button>
+    </div>
+    <div class="mobile-nav__body">
+      <div class="mobile-nav__section">
+        <div class="mobile-nav__group-title">Услуги</div>
+        
+        <a href=\"/detailing/v2/okleika\" class="mobile-nav__link">Оклейка пленкой</a>
+        
+        <a href=\"/detailing/v2/polirovka-avtomobilya\" class="mobile-nav__link">Полировка автомобиля</a>
+        
+        <a href=\"/detailing/v2/detejling\" class="mobile-nav__link">Детейлинг уход</a>
+        
+        <a href=\"/detailing/v2/keramiceskie-pokrytiia\" class="mobile-nav__link">Керамические покрытия</a>
+        
+        <a href=\"/detailing/v2/antihrom\" class="mobile-nav__link">Пакет Антихром</a>
+        
+        <a href=\"/detailing/v2/remont-salona\" class="mobile-nav__link">Реставрация салона</a>
+        
+        <a href=\"/detailing/v2/vibro-shumoizolyatsiya-avtomobilya\" class="mobile-nav__link">Шумоизоляция автомобиля</a>
+        
+        <a href=\"/detailing/v2/tonirovka\" class="mobile-nav__link">Тонировка автомобиля</a>
+        
+      </div>
+      <div class="mobile-nav__section">
+        <div class="mobile-nav__group-title">О компании</div>
+        
+        <a href=\"/detailing/v2/nashi-raboty\" class="mobile-nav__link">Наши работы</a>
+        
+        <a href=\"/detailing/v2/kontakty\" class="mobile-nav__link">Контакты</a>
+        
+      </div>
+    </div>
+    <div class="mobile-nav__footer">
+      <a href="tel:+70000000000" class="mobile-nav__phone">+7 (000) 000-00-00</a>
+      <button class="mobile-nav__cta js-open-modal">Связаться с нами →</button>
+    </div>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<main>
+  
+<!-- HERO -->
+<section class="page-hero page-hero--full" style="--hero-bg: url('http://85.239.59.252:8055/assets/6880fd1c-2cf1-4f3c-b5c6-cdc236cb75bd?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/18889b98-a448-46b2-9af5-c091a7a6e98a?access_token=directus-mcp-2024-xK9m')">
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <div class="breadcrumb">
+      <a href=\"/detailing/v2/\">Главная</a>
+      <span>/</span>
+      <span>Полировка кузова автомобиля</span>
+    </div>
+    <h1>Полировка кузова автомобиля</h1>
+    <p>Устраняем царапины, потёртости и окислы. Восстанавливаем зеркальный блеск лакокрасочного покрытия.</p>
+    <a href="#price" class="btn btn--outline">Смотреть цены →</a>
+  </div>
+</section>
+
+<!-- PRICE TABLE -->
+<section class="price-section" id="price">
+  <div class="price-section__inner">
+    <h2 class="section-title">// Прайс-лист на полировку кузова</h2>
+    <p class="price-note">Конкретные цены зависят от автомобиля. Точную стоимость уточняйте у менеджера.</p>
+
+    <div class="price-table">
+      
+      <div class="price-row">
+        <span class="price-row__name">Подготовка кузова к полировке***</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">5 800 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Мягкая полировка кузова</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">29 800 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Полная абразивная полировка**</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">40 400 ₽</span>
+      </div>
+      
+      <div class="price-row">
+        <span class="price-row__name">Разбор/сбор под полировку</span>
+        <span class="price-row__dots"></span>
+        <span class="price-row__price">8 200 ₽</span>
+      </div>
+      
+    </div>
+
+    <div class="price-cta">
+      <button class="btn btn--outline js-open-modal">Записаться на услугу →</button>
+    </div>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+
+<section class="service-desc">
+  <div class="service-desc__inner">
+    
+    <div class="service-desc__block">
+      <h2>Проведение полировки</h2>
+      <p>Даже новому авто не повредит профессиональная полировка. С помощью лёгкой ручной полировки можно устранить все неровности.</p>
+    </div>
+    
+    <div class="service-desc__block">
+      <h2>Плюсы полировки</h2>
+      <p>Удаляет царапины и дефекты; делает поверхность гладкой; способствует гидрофобному эффекту; защищает от коррозии; придаёт блеск.</p>
+    </div>
+    
+    <div class="service-desc__block">
+      <h2>Виды полировки</h2>
+      <p>Абразивная — удаляет царапины. Антиголограммная — безабразивная, для достижения идеального блеска. Комбинированная — для японских автомобилей с тонким лаком.</p>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- CONTACT FORM -->
+<section class="cta-form contacts-cta" id="contact-form">
+  <div class="cta-form__bg" style="--cta-bg-desk: url('/detailing/v2/images/hero-1.jpg'); --cta-bg-mob: url('/detailing/v2/images/cta-bg.jpg')"></div>
+  <div class="contacts-cta__inner">
+    <h2>Рассчитать стоимость</h2>
+    <p>Оставьте свой номер телефона и наш менеджер свяжется с вами в ближайшее время</p>
+    <form class="cta-form__form" data-service="Полировка кузова автомобиля">
+      <input type="hidden" name="service" value="Полировка кузова автомобиля">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Номер телефона" required>
+      <label class="cta-form__checkbox">
+        <input type="checkbox" required>
+        <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="btn btn--outline">Получить консультацию</button>
+    </form>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews__header">
+    <h2 class="section-title">// Отзывы</h2>
+    <p>Отзывы помогают нашей команде становиться лучше</p>
+  </div>
+  <div class="reviews__track-wrap">
+    <div class="reviews__track" id="reviewsTrack">
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">А</div>
+          <div>
+            <div class="review-card__name">Александр М.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Отличная работа! Сделали полировку кузова — результат превзошёл ожидания. Машина выглядит как новая. Мастера вежливые, всё объяснили.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Е</div>
+          <div>
+            <div class="review-card__name">Екатерина В.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Делала химчистку салона — очень довольна. Убрали все пятна, даже те, которые казались непоправимыми. Приятный запах, аккуратно.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Д</div>
+          <div>
+            <div class="review-card__name">Дмитрий С.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Оклейка антигравийной плёнкой — сделали быстро и качественно. Шов ровный, пузырей нет. Рекомендую всем, кто хочет защитить кузов.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">И</div>
+          <div>
+            <div class="review-card__name">Ирина Н.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Нанесли керамическое покрытие. Теперь машина отталкивает воду и грязь — мыть одно удовольствие. Работой очень довольна.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">М</div>
+          <div>
+            <div class="review-card__name">Михаил Р.</div>
+            <div class="review-card__stars">★★★★★</div>
+          </div>
+          <div class="review-card__source">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Обратился по рекомендации. Сделали шумоизоляцию — в салоне стало заметно тише. Качество работы на высоком уровне.</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class="reviews__controls">
+    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
+    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+  <div class="faq-section__inner">
+    <h2 class="section-title">// Ответы на вопросы</h2>
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">01</span>
+          <span class="faq-item__q">Зачем нужна полировка?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Удаляет царапины, окисления, восстанавливает блеск, защищает ЛКП.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">02</span>
+          <span class="faq-item__q">Как часто полировать?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Раз в 6–12 месяцев. Частая полировка может повредить лак.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__num">03</span>
+          <span class="faq-item__q">Как долго держится эффект?</span>
+          <span class="faq-item__icon">+</span>
+        </button>
+        <div class="faq-item__answer">
+          <p>От нескольких месяцев до года.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col footer__col--brand">
+      <a href=\"/detailing/v2/\" class="footer__logo">Ваша студия</a>
+      <p>Профессиональный детейлинг автомобиля</p>
+      <div class="footer__socials">
+        
+        <a href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+          
+        </a>
+        
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+          
+        </a>
+        
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>О компании</h4>
+      <ul>
+        
+        <li><a href=\"/detailing/v2/nashi-raboty\">Наши работы</a></li>
+        
+        <li><a href=\"/detailing/v2/kontakty\">Контакты</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Услуги</h4>
+      <ul>
+        
+        <li><a href=\"/detailing/v2/okleika\">Оклейка пленкой</a></li>
+        
+        <li><a href=\"/detailing/v2/polirovka-avtomobilya\">Полировка автомобиля</a></li>
+        
+        <li><a href=\"/detailing/v2/detejling\">Детейлинг уход</a></li>
+        
+        <li><a href=\"/detailing/v2/keramiceskie-pokrytiia\">Керамические покрытия</a></li>
+        
+        <li><a href=\"/detailing/v2/antihrom\">Пакет Антихром</a></li>
+        
+        <li><a href=\"/detailing/v2/remont-salona\">Реставрация салона</a></li>
+        
+        <li><a href=\"/detailing/v2/vibro-shumoizolyatsiya-avtomobilya\">Шумоизоляция автомобиля</a></li>
+        
+        <li><a href=\"/detailing/v2/tonirovka\">Тонировка автомобиля</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--contacts">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><a href="mailto:info@yourstudio.ru">info@yourstudio.ru</a></li>
+        <li>Москва, ул. Тверская, 13</li>
+        <li>Пн–Вс: 9:00 – 20:00</li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Ваша студия. Все права защищены.</span>
+  </div>
+</footer>
+
+
+<!-- MODAL FORM -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Заявка">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__box">
+    <button class="modal__close" id="closeModal" aria-label="Закрыть">×</button>
+    <h2 class="modal__title">Заявка на приём<br>автомобиля</h2>
+    <p class="modal__sub">Заполните форму — наш менеджер свяжется с вами</p>
+    <form class="modal__form" id="modalForm" novalidate>
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Номер телефона" required>
+      <label class="modal__checkbox">
+        <input type="checkbox" name="agree" required>
+        <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="modal__submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+
+<script src=\"/detailing/v2/script.js\"></script>
+</body>
+</html>

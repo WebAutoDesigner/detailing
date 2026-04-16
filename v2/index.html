@@ -1,0 +1,836 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Детейлинг автомобиля — Ваша студия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href=\"/detailing/v2/style.css\">
+</head>
+<body>
+
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <div class="header__left">
+      <a href=\"/detailing/v2/\" class="header__logo">Ваша студия</a>
+      <div class="header__socials">
+        
+        <a href="https://vk.com/" class="header__social" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+          
+        </a>
+        
+        <a href="https://t.me/" class="header__social" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+          
+        </a>
+        
+      </div>
+      <span class="header__city">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Москва, ул. Тверская, 13
+      </span>
+    </div>
+
+    <nav class="header__nav">
+      <!-- Услуги -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="services">
+        <button class="nav-item__btn">Услуги <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--services">
+          <div class="dropdown__inner">
+            <ul class="dropdown__services-list">
+              
+              <li class="dropdown__service-item" data-service="0">
+                <span class="dropdown__service-name">Оклейка пленкой</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="1">
+                <span class="dropdown__service-name">Полировка автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="2">
+                <span class="dropdown__service-name">Детейлинг уход</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="3">
+                <span class="dropdown__service-name">Керамические покрытия</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="4">
+                <span class="dropdown__service-name">Пакет Антихром</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="5">
+                <span class="dropdown__service-name">Реставрация салона</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="6">
+                <span class="dropdown__service-name">Шумоизоляция автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+              <li class="dropdown__service-item" data-service="7">
+                <span class="dropdown__service-name">Тонировка автомобиля</span>
+                <span class="dropdown__arrow">→</span>
+              </li>
+              
+            </ul>
+            <div class="dropdown__subservices">
+              
+              <ul class="dropdown__sub-list" data-sub="0">
+                
+                <li><a href=\"/detailing/v2/tsvetnaya-plenka\">Оклейка виниловой пленкой</a></li>
+                
+                <li><a href=\"/detailing/v2/okleika-dekorativnyx-elementov\">Оклейка декоративных элементов</a></li>
+                
+                <li><a href=\"/detailing/v2/antigravijnaya-plenka\">Оклейка антигравийной пленкой</a></li>
+                
+                <li><a href=\"/detailing/v2/okleika-stekol-zashitnoi-plenkoi\">Бронирование лобового стекла</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="1">
+                
+                <li><a href=\"/detailing/v2/polirovka-kuzova\">Полировка кузова автомобиля</a></li>
+                
+                <li><a href=\"/detailing/v2/polirovka-detalej-salona\">Полировка деталей салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="2">
+                
+                <li><a href=\"/detailing/v2/detejling-khimchistka-salona\">Химчистка салона автомобиля</a></li>
+                
+                <li><a href=\"/detailing/v2/uhod-za-podkapotnym-prostranstvom\">Уход за подкапотным пространством</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="3">
+                
+                <li><a href=\"/detailing/v2/zashchitnye-pokrytiya\">Керамическое покрытие для кузова</a></li>
+                
+                <li><a href=\"/detailing/v2/zashchita-diskov\">Защита дисков</a></li>
+                
+                <li><a href=\"/detailing/v2/zashchitnye-pokrytiya-dlya-salona\">Керамика для салона</a></li>
+                
+                <li><a href=\"/detailing/v2/antidozhd\">Антидождь</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="4">
+                
+                <li><a href=\"/detailing/v2/antihrom-usluga\">Антихром</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="5">
+                
+                <li><a href=\"/detailing/v2/restavraciya-salona\">Реставрация салона</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="6">
+                
+                <li><a href=\"/detailing/v2/shumoizolyaciya-avto\">Шумоизоляция автомобиля</a></li>
+                
+              </ul>
+              
+              <ul class="dropdown__sub-list" data-sub="7">
+                
+                <li><a href=\"/detailing/v2/tonirovka-avto\">Тонировка автомобиля</a></li>
+                
+              </ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- О компании -->
+      <div class="nav-item nav-item--dropdown" data-dropdown="company">
+        <button class="nav-item__btn">О компании <span class="nav-item__icon">+</span></button>
+        <div class="dropdown dropdown--company">
+          <ul class="dropdown__list">
+            
+            <li><a href=\"/detailing/v2/nashi-raboty\">Наши работы</a></li>
+            
+            <li><a href=\"/detailing/v2/kontakty\">Контакты</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header__right">
+      <a href="tel:+70000000000" class="header__phone">+7 (000) 000-00-00</a>
+      <button class="header__cta" id="openModal">Связаться с нами →</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__overlay" id="mobileNavOverlay"></div>
+  <nav class="mobile-nav__drawer">
+    <div class="mobile-nav__head">
+      <a href=\"/detailing/v2/\" class="mobile-nav__logo">Ваша студия</a>
+      <button class="mobile-nav__close" id="mobileNavClose">×</button>
+    </div>
+    <div class="mobile-nav__body">
+      <div class="mobile-nav__section">
+        <div class="mobile-nav__group-title">Услуги</div>
+        
+        <a href=\"/detailing/v2/okleika\" class="mobile-nav__link">Оклейка пленкой</a>
+        
+        <a href=\"/detailing/v2/polirovka-avtomobilya\" class="mobile-nav__link">Полировка автомобиля</a>
+        
+        <a href=\"/detailing/v2/detejling\" class="mobile-nav__link">Детейлинг уход</a>
+        
+        <a href=\"/detailing/v2/keramiceskie-pokrytiia\" class="mobile-nav__link">Керамические покрытия</a>
+        
+        <a href=\"/detailing/v2/antihrom\" class="mobile-nav__link">Пакет Антихром</a>
+        
+        <a href=\"/detailing/v2/remont-salona\" class="mobile-nav__link">Реставрация салона</a>
+        
+        <a href=\"/detailing/v2/vibro-shumoizolyatsiya-avtomobilya\" class="mobile-nav__link">Шумоизоляция автомобиля</a>
+        
+        <a href=\"/detailing/v2/tonirovka\" class="mobile-nav__link">Тонировка автомобиля</a>
+        
+      </div>
+      <div class="mobile-nav__section">
+        <div class="mobile-nav__group-title">О компании</div>
+        
+        <a href=\"/detailing/v2/nashi-raboty\" class="mobile-nav__link">Наши работы</a>
+        
+        <a href=\"/detailing/v2/kontakty\" class="mobile-nav__link">Контакты</a>
+        
+      </div>
+    </div>
+    <div class="mobile-nav__footer">
+      <a href="tel:+70000000000" class="mobile-nav__phone">+7 (000) 000-00-00</a>
+      <button class="mobile-nav__cta js-open-modal">Связаться с нами →</button>
+    </div>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<main>
+  
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__slider" id="heroSlider">
+    
+    <div class="hero__slide hero__slide--active" style="--hero-bg: url('http://85.239.59.252:8055/assets/d3c9cf23-101d-4460-9232-5d569be915dc?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/d3c9cf23-101d-4460-9232-5d569be915dc?access_token=directus-mcp-2024-xK9m')">
+      
+      <video class="hero__video-bg" autoplay muted loop playsinline>
+        <source src="http://85.239.59.252:8055/assets/c0e46a1a-f192-41bf-b2dc-00aca9f036c7?access_token=directus-mcp-2024-xK9m" media="(max-width: 768px)" type="video/mp4">
+        <source src="http://85.239.59.252:8055/assets/c0e46a1a-f192-41bf-b2dc-00aca9f036c7?access_token=directus-mcp-2024-xK9m" type="video/mp4">
+      </video>
+      
+      <div class="hero__overlay"></div>
+      <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
+      <div class="hero__content">
+        <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
+        <h1>Детейлинг автомобиля</h1>
+        <p>Профессиональный уход за вашим автомобилем</p>
+      </div>
+    </div>
+    
+    <div class="hero__slide " style="--hero-bg: url('http://85.239.59.252:8055/assets/307d2b55-4ca7-431b-a4f8-f2049dd66643?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/508926b0-9a4d-454a-aec8-ab9cc4fed178?access_token=directus-mcp-2024-xK9m')">
+      
+      <div class="hero__overlay"></div>
+      <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
+      <div class="hero__content">
+        <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
+        <h1>Оклейка плёнкой</h1>
+        <p>Защитите кузов от царапин и сколов</p>
+      </div>
+    </div>
+    
+    <div class="hero__slide " style="--hero-bg: url('http://85.239.59.252:8055/assets/db48305e-753f-486d-a147-9c37cef3b807?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/1ae20444-df04-4e66-9eb1-dbd0fb480be7?access_token=directus-mcp-2024-xK9m')">
+      
+      <div class="hero__overlay"></div>
+      <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
+      <div class="hero__content">
+        <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
+        <h1>Полировка автомобиля</h1>
+        <p>Возвращаем блеск и защищаем лакокрасочное покрытие</p>
+      </div>
+    </div>
+    
+    <div class="hero__slide " style="--hero-bg: url('http://85.239.59.252:8055/assets/a2b8129d-2182-4de5-9b73-0f49cb34c3f5?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/a2b8129d-2182-4de5-9b73-0f49cb34c3f5?access_token=directus-mcp-2024-xK9m')">
+      
+      <div class="hero__overlay"></div>
+      <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
+      <div class="hero__content">
+        <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
+        <h1>Керамические покрытия</h1>
+        <p>Долгосрочная защита кузова вашего автомобиля</p>
+      </div>
+    </div>
+    
+    <div class="hero__slide " style="--hero-bg: url('http://85.239.59.252:8055/assets/813c0c81-2c9d-4874-93cd-7349fb144dc7?access_token=directus-mcp-2024-xK9m'); --hero-bg-mobile: url('http://85.239.59.252:8055/assets/813c0c81-2c9d-4874-93cd-7349fb144dc7?access_token=directus-mcp-2024-xK9m')">
+      
+      <div class="hero__overlay"></div>
+      <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
+      <div class="hero__content">
+        <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
+        <h1>Химчистка салона</h1>
+        <p>Глубокая очистка и уход за каждой деталью интерьера</p>
+      </div>
+    </div>
+    
+  </div>
+  <div class="hero__controls">
+    <span class="hero__counter" id="heroCounter">1 / 5</span>
+    <button class="hero__btn hero__btn--prev" id="heroPrev" aria-label="Назад">←</button>
+    <button class="hero__btn hero__btn--next" id="heroNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats__inner">
+    
+    <div class="stats__item">
+      <span class="stats__value">10+</span>
+      <span class="stats__label">лет на рынке</span>
+    </div>
+    
+    <div class="stats__item">
+      <span class="stats__value">1 000+</span>
+      <span class="stats__label">довольных клиентов</span>
+    </div>
+    
+    <div class="stats__item">
+      <span class="stats__value">5+</span>
+      <span class="stats__label">специалистов</span>
+    </div>
+    
+    <div class="stats__item">
+      <span class="stats__value">8</span>
+      <span class="stats__label">направлений услуг</span>
+    </div>
+    
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services__header">
+    <h2 class="section-title">// Услуги</h2>
+    <p class="services__desc">Предлагаем вам широкий спектр по защите и уходу за вашим автомобилем</p>
+  </div>
+  <div class="services__grid">
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/279bab1e-2355-4e20-b962-3259c063c650?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/okleika\" class="service-card__link" aria-label="Оклейка пленкой"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Оклейка пленкой</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Оклейка пленкой</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/tsvetnaya-plenka\">Оклейка виниловой пленкой</a></li>
+          
+          <li><a href=\"/detailing/v2/okleika-dekorativnyx-elementov\">Оклейка декоративных элементов</a></li>
+          
+          <li><a href=\"/detailing/v2/antigravijnaya-plenka\">Оклейка антигравийной пленкой</a></li>
+          
+          <li><a href=\"/detailing/v2/okleika-stekol-zashitnoi-plenkoi\">Бронирование лобового стекла</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/136d2c6b-6d59-4505-9593-bdcfa0fcd5a3?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/polirovka-avtomobilya\" class="service-card__link" aria-label="Полировка автомобиля"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Полировка автомобиля</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Полировка автомобиля</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/polirovka-kuzova\">Полировка кузова автомобиля</a></li>
+          
+          <li><a href=\"/detailing/v2/polirovka-detalej-salona\">Полировка деталей салона</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/2520ce58-6726-46a6-b17d-8c9470f8c064?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/detejling\" class="service-card__link" aria-label="Детейлинг уход"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Детейлинг уход</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Детейлинг уход</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/detejling-khimchistka-salona\">Химчистка салона автомобиля</a></li>
+          
+          <li><a href=\"/detailing/v2/uhod-za-podkapotnym-prostranstvom\">Уход за подкапотным пространством</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/b6d65d9e-27fe-4ba9-833e-c0d780ec6b6b?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/keramiceskie-pokrytiia\" class="service-card__link" aria-label="Керамические покрытия"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Керамические покрытия</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Керамические покрытия</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/zashchitnye-pokrytiya\">Керамическое покрытие для кузова</a></li>
+          
+          <li><a href=\"/detailing/v2/zashchita-diskov\">Защита дисков</a></li>
+          
+          <li><a href=\"/detailing/v2/zashchitnye-pokrytiya-dlya-salona\">Керамика для салона</a></li>
+          
+          <li><a href=\"/detailing/v2/antidozhd\">Антидождь</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/02ad31fd-d143-4796-b691-90d30bde6183?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/antihrom\" class="service-card__link" aria-label="Пакет Антихром"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Пакет Антихром</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Пакет Антихром</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/antihrom-usluga\">Антихром</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/ebdb06c0-92e3-43fb-b68d-779a0321a692?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/remont-salona\" class="service-card__link" aria-label="Реставрация салона"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Реставрация салона</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Реставрация салона</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/restavraciya-salona\">Реставрация салона</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/e76d2383-5c34-4fcb-ad33-99d2296f8665?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/vibro-shumoizolyatsiya-avtomobilya\" class="service-card__link" aria-label="Шумоизоляция автомобиля"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Шумоизоляция автомобиля</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Шумоизоляция автомобиля</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/shumoizolyaciya-avto\">Шумоизоляция автомобиля</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+    
+    <div class="service-card" style="background-image: url('http://85.239.59.252:8055/assets/77d37d45-5d56-4fb9-9649-273a46cf280b?access_token=directus-mcp-2024-xK9m')">
+      <a href=\"/detailing/v2/tonirovka\" class="service-card__link" aria-label="Тонировка автомобиля"></a>
+      <div class="service-card__overlay"></div>
+      <span class="service-card__name">Тонировка автомобиля</span>
+      
+      <div class="service-card__hover">
+        <span class="service-card__hover-title">Тонировка автомобиля</span>
+        <ul class="service-card__subs">
+          
+          <li><a href=\"/detailing/v2/tonirovka-avto\">Тонировка автомобиля</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="cta-form">
+  <div class="cta-form__bg" style="--cta-bg-desk: url('/detailing/v2/images/hero-1.jpg'); --cta-bg-mob: url('/detailing/v2/images/cta-bg.jpg')"></div>
+  <div class="cta-form__inner">
+    <div class="cta-form__content">
+      <div class="cta-form__text">
+        <h2>Рассчитать<br>стоимость</h2>
+        <p>Оставьте свой номер телефона и наш менеджер свяжется с вами в ближайшее время</p>
+      </div>
+      <form class="cta-form__form" id="ctaForm">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Номер телефона" required>
+        <label class="cta-form__checkbox">
+          <input type="checkbox" required>
+          <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn btn--outline">Получить консультацию</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews__header">
+    <h2 class="section-title">// Отзывы</h2>
+    <p>Отзывы помогают нашей команде становиться лучше, чтобы продолжать радовать вас</p>
+  </div>
+  <div class="reviews__track-wrap">
+    <div class="reviews__track" id="reviewsTrack">
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">А</div>
+          <div>
+            <div class="review-card__name">Александр М.</div>
+            <div class="review-card__stars">
+              ★★★★★
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--yandex">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Отличная работа! Сделали полировку кузова — результат превзошёл ожидания. Машина выглядит как новая. Мастера вежливые, всё объяснили.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Е</div>
+          <div>
+            <div class="review-card__name">Екатерина В.</div>
+            <div class="review-card__stars">
+              ★★★★★
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--2gis">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Делала химчистку салона — очень довольна. Убрали все пятна, даже те, которые казались непоправимыми. Приятный запах, аккуратно.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">Д</div>
+          <div>
+            <div class="review-card__name">Дмитрий С.</div>
+            <div class="review-card__stars">
+              ★★★★★
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--yandex">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Оклейка антигравийной плёнкой — сделали быстро и качественно. Шов ровный, пузырей нет. Рекомендую всем, кто хочет защитить кузов.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">И</div>
+          <div>
+            <div class="review-card__name">Ирина Н.</div>
+            <div class="review-card__stars">
+              ★★★★★
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--2gis">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Нанесли керамическое покрытие. Теперь машина отталкивает воду и грязь — мыть одно удовольствие. Работой очень довольна.</p>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-card__top">
+          <div class="review-card__avatar">М</div>
+          <div>
+            <div class="review-card__name">Михаил Р.</div>
+            <div class="review-card__stars">
+              ★★★★★
+            </div>
+          </div>
+          <div class="review-card__source review-card__source--yandex">
+            
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
+            
+          </div>
+        </div>
+        <p class="review-card__text">Обратился по рекомендации. Сделали шумоизоляцию — в салоне стало заметно тише. Качество работы на высоком уровне.</p>
+      </div>
+      
+    </div>
+  </div>
+  <div class="reviews__controls">
+    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
+    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages">
+  <div class="advantages__inner">
+    <div class="advantages__header">
+      <h2 class="section-title">// О нашем детейлинге</h2>
+      <p>Ваша студия заработала доверие наших уважаемых клиентов из-за ряда причин, которые делают нас отличным выбором для профессиональных услуг по детейлингу.</p>
+    </div>
+    <div class="advantages__grid">
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19h20M3 9l4 4 5-7 5 7 4-4v10H3V9z"/></svg>
+          
+        </div>
+        <h3>Полный спектр услуг</h3>
+        <p>Предлагаем полный цикл детейлинга: от химчистки салона и полировки кузова до бесследного устранения царапин.</p>
+      </div>
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          
+        </div>
+        <h3>Профессионализм</h3>
+        <p>Наша команда — это опытные мастера, которые виртуозно справляются с задачами любой сложности.</p>
+      </div>
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20M6 3l4 6m4 0l4-6"/></svg>
+          
+        </div>
+        <h3>Качественные материалы</h3>
+        <p>Работаем с сертифицированными материалами для безупречного результата и сохранности вашего авто.</p>
+      </div>
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          
+        </div>
+        <h3>Честные цены</h3>
+        <p>Предлагаем конкурентоспособные и честные цены, без навязчивых предложений и скрытых платежей.</p>
+      </div>
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          
+        </div>
+        <h3>Гарантия качества</h3>
+        <p>Предоставляем гарантии на все работы, что позволяет клиентам быть уверенными в качестве услуг.</p>
+      </div>
+      
+      <div class="advantage-card">
+        <div class="advantage-card__icon">
+          
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          
+        </div>
+        <h3>Индивидуальный подход</h3>
+        <p>Мы внимательно слушаем ваши пожелания, чтобы реализовать именно ваш проект идеального авто.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="works__header">
+    <h2 class="section-title">// Наши работы</h2>
+  </div>
+  <div class="works__grid">
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/a4c827d9-261e-42a9-8e07-f863f0f6a769?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/f329ee2e-4237-4a9b-a672-5b2b349255df?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/ccf8c983-01b3-486b-b9f9-370253aecbd7?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/616e1659-2ce8-44aa-8c6e-fda3d90418d5?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/2855142a-bd8a-4000-96b8-cd14a11ee7d4?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/63af5ac2-cbf9-4b13-88a9-587145d8d953?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/bdf358ae-d1ed-43b9-a702-39356c1d3558?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+    <div class="works__item">
+      <img src="http://85.239.59.252:8055/assets/0784eb28-af48-40fe-8d4b-de9e21ff14e3?access_token=directus-mcp-2024-xK9m" alt="Работа детейлинг студии" loading="lazy">
+    </div>
+    
+  </div>
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col footer__col--brand">
+      <a href=\"/detailing/v2/\" class="footer__logo">Ваша студия</a>
+      <p>Профессиональный детейлинг автомобиля</p>
+      <div class="footer__socials">
+        
+        <a href="https://vk.com/" target="_blank" rel="noopener" aria-label="ВКонтакте">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .643.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.745-.576.745z"/></svg>
+          
+        </a>
+        
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.978.889z"/></svg>
+          
+        </a>
+        
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>О компании</h4>
+      <ul>
+        
+        <li><a href=\"/detailing/v2/nashi-raboty\">Наши работы</a></li>
+        
+        <li><a href=\"/detailing/v2/kontakty\">Контакты</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>Услуги</h4>
+      <ul>
+        
+        <li><a href=\"/detailing/v2/okleika\">Оклейка пленкой</a></li>
+        
+        <li><a href=\"/detailing/v2/polirovka-avtomobilya\">Полировка автомобиля</a></li>
+        
+        <li><a href=\"/detailing/v2/detejling\">Детейлинг уход</a></li>
+        
+        <li><a href=\"/detailing/v2/keramiceskie-pokrytiia\">Керамические покрытия</a></li>
+        
+        <li><a href=\"/detailing/v2/antihrom\">Пакет Антихром</a></li>
+        
+        <li><a href=\"/detailing/v2/remont-salona\">Реставрация салона</a></li>
+        
+        <li><a href=\"/detailing/v2/vibro-shumoizolyatsiya-avtomobilya\">Шумоизоляция автомобиля</a></li>
+        
+        <li><a href=\"/detailing/v2/tonirovka\">Тонировка автомобиля</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="footer__col footer__col--contacts">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><a href="mailto:info@yourstudio.ru">info@yourstudio.ru</a></li>
+        <li>Москва, ул. Тверская, 13</li>
+        <li>Пн–Вс: 9:00 – 20:00</li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Ваша студия. Все права защищены.</span>
+  </div>
+</footer>
+
+
+<!-- MODAL FORM -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Заявка">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__box">
+    <button class="modal__close" id="closeModal" aria-label="Закрыть">×</button>
+    <h2 class="modal__title">Заявка на приём<br>автомобиля</h2>
+    <p class="modal__sub">Заполните форму — наш менеджер свяжется с вами</p>
+    <form class="modal__form" id="modalForm" novalidate>
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Номер телефона" required>
+      <label class="modal__checkbox">
+        <input type="checkbox" name="agree" required>
+        <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="modal__submit">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+
+<script src=\"/detailing/v2/script.js\"></script>
+</body>
+</html>
