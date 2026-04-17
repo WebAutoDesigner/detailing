@@ -420,7 +420,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hero__cta-btn { font-size: 16px; padding: 12px 32px; }
   .hero__cta-btn--mobile { display: none; }
   .hero__controls { right: 16px; bottom: 20px; }
-  .hero__video-bg { display: none; }
 
   /* Stats */
   .stats__inner { padding: 20px; display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; align-items: center; }
