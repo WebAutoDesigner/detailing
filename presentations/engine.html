@@ -110,6 +110,34 @@
   #s12 h2 span { color: var(--yellow); }
   #s12 p { font-size: 16px; color: var(--muted); text-align: center; }
   .cta-brand { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow); margin-top: 12px; }
+
+  @media (max-width: 768px) {
+    section { padding: 60px 20px; min-height: auto; }
+    .brand { display: none; }
+    .slide-num { display: none; }
+
+    /* pains */
+    .pains-grid { grid-template-columns: 1fr; }
+
+    /* stack */
+    .stack-two { grid-template-columns: 1fr; }
+
+    /* comparison table */
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 9px 10px; }
+
+    /* subservice screens */
+    .sub-screens { grid-template-columns: 1fr; }
+
+    /* directus dir-layout */
+    .dir-layout { flex-direction: column; gap: 24px; }
+    .dir-screen-side { flex: none; width: 100%; }
+
+    /* why grid */
+    .why-grid { grid-template-columns: 1fr; }
+
+    #s1 h1 { font-size: 32px; }
+  }
 </style>
 </head>
 <body>
