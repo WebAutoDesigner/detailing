@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наш движок — Web разработка</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0d; --card: #161616; --border: #222;
+    --yellow: #f0c040; --yellow-dim: rgba(240,192,64,.12);
+    --red-dim: rgba(255,80,80,.1); --green-dim: rgba(64,200,120,.1);
+    --text: #e8e8e8; --muted: #888;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); }
+
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--yellow); z-index: 200; width: 0; transition: width .3s; }
+  .brand { position: fixed; top: 24px; right: 36px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; z-index: 100; }
+
+  section {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 80px 64px; position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; display: block; }
+  .slide-num { position: absolute; bottom: 28px; right: 36px; font-size: 12px; color: #333; font-weight: 600; }
+
+  /* 1 — COVER */
+  #s1 { background: radial-gradient(ellipse at 30% 50%, #1a0808 0%, var(--bg) 60%); gap: 20px; }
+  #s1 .badge { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--yellow); background: var(--yellow-dim); border: 1px solid rgba(240,192,64,.3); border-radius: 40px; padding: 6px 18px; }
+  #s1 h1 { font-size: clamp(32px, 4.5vw, 58px); font-weight: 800; line-height: 1.12; text-align: center; max-width: 720px; }
+  #s1 h1 span { color: var(--yellow); }
+  #s1 p { font-size: 16px; color: var(--muted); text-align: center; max-width: 520px; }
+
+  /* 2 — WP PAINS */
+  #s2 { gap: 36px; }
+  #s2 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  .pains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; width: 100%; }
+  .pain-card { background: var(--red-dim); border: 1px solid rgba(255,80,80,.2); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .pain-card .pain-icon { font-size: 24px; }
+  .pain-card h3 { font-size: 14px; font-weight: 700; }
+  .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* 3 — OUR STACK */
+  #s3 { gap: 36px; }
+  #s3 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  #s3 h2 span { color: var(--yellow); }
+  .stack-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; width: 100%; }
+  .stack-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .stack-card.accent { border-color: rgba(240,192,64,.3); background: linear-gradient(135deg, #1a1500, var(--card)); }
+  .stack-card .label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow); }
+  .stack-card h3 { font-size: 20px; font-weight: 800; }
+  .stack-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .stack-card .analogy { font-size: 13px; color: var(--text); background: rgba(255,255,255,.04); border-left: 2px solid var(--yellow); padding: 8px 12px; border-radius: 0 6px 6px 0; }
+
+  /* 4 — COMPARISON */
+  #s4 { gap: 32px; }
+  #s4 h2 { font-size: clamp(20px, 2.5vw, 30px); font-weight: 800; text-align: center; }
+  #s4 h2 span { color: var(--yellow); }
+  .compare-table { width: 100%; max-width: 820px; border-collapse: collapse; }
+  .compare-table th, .compare-table td { padding: 13px 18px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .compare-table thead th { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .compare-table thead th:nth-child(2) { color: #ff6060; }
+  .compare-table thead th:nth-child(3) { color: #40c878; }
+  .compare-table tbody tr:hover td { background: rgba(255,255,255,.02); }
+  .compare-table td:first-child { color: var(--muted); font-weight: 500; }
+  .compare-table td.bad { color: #ff6060; }
+  .compare-table td.good { color: #40c878; font-weight: 600; }
+
+  /* 5 — DIRECTUS SUBSERVICE */
+  #s5 { gap: 32px; min-height: auto; padding: 80px 64px; }
+  #s5 h2 { font-size: clamp(20px, 2.5vw, 30px); font-weight: 800; text-align: center; }
+  #s5 h2 span { color: var(--yellow); }
+  #s5 .sub-text { font-size: 15px; color: var(--muted); text-align: center; max-width: 680px; }
+  .sub-screens { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1000px; width: 100%; }
+  .sub-screen { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+  .sub-screen img { width: 100%; display: block; }
+  .sub-screen .label { font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 14px; background: var(--card); border-top: 1px solid var(--border); }
+
+  /* 6–10 — DIRECTUS SECTIONS */
+  .dir-layout { display: flex; align-items: flex-start; gap: 48px; max-width: 960px; width: 100%; }
+  .dir-screen-side { flex: 1.4; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
+  .dir-screen-side img { width: 100%; display: block; }
+  .dir-text { flex: 1; display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
+  .dir-text h2 { font-size: clamp(18px, 2.2vw, 26px); font-weight: 800; line-height: 1.3; }
+  .dir-text h2 span { color: var(--yellow); }
+  .dir-text p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .dir-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .dir-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; }
+  .dir-features li::before { content: ''; flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; background: var(--green-dim); border: 1.5px solid rgba(64,200,120,.4); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2340c878' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 10px; }
+
+  /* 11 — WHY WINS */
+  #s11 { gap: 36px; }
+  #s11 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  #s11 h2 span { color: var(--yellow); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; width: 100%; }
+  .why-card { background: var(--green-dim); border: 1px solid rgba(64,200,120,.2); border-radius: 12px; padding: 22px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .why-card .w-icon { font-size: 24px; }
+  .why-card h3 { font-size: 14px; font-weight: 700; }
+  .why-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+  /* 12 — CTA */
+  #s12 { background: radial-gradient(ellipse at 50% 40%, #1a1500 0%, var(--bg) 65%); gap: 20px; }
+  #s12 h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 800; text-align: center; }
+  #s12 h2 span { color: var(--yellow); }
+  #s12 p { font-size: 16px; color: var(--muted); text-align: center; }
+  .cta-brand { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="brand">Web разработка</div>
+
+<!-- 1: COVER -->
+<section id="s1">
+  <div class="badge">Наш движок</div>
+  <h1>Почему не<br><span>WordPress</span></h1>
+  <p>И чем наш подход удобнее — для вас как владельца и для ваших клиентов</p>
+  <div class="slide-num">1 / 12</div>
+</section>
+
+<!-- 2: WP PAINS -->
+<section id="s2">
+  <span class="section-tag">Проблемы WordPress</span>
+  <h2>С чем сталкиваются владельцы сайтов на WP</h2>
+  <div class="pains-grid">
+    <div class="pain-card"><div class="pain-icon">🐢</div><h3>Медленно</h3><p>Каждый визит — запрос к базе данных. Без дорогого хостинга сайт тормозит и теряет позиции.</p></div>
+    <div class="pain-card"><div class="pain-icon">🔓</div><h3>Взламывают</h3><p>44% всех взломанных сайтов в мире — на WordPress. Устаревший плагин = открытая дверь.</p></div>
+    <div class="pain-card"><div class="pain-icon">💥</div><h3>Обновления ломают</h3><p>Обновил плагин — слетел дизайн. Обновил WP — перестала работать половина функций.</p></div>
+    <div class="pain-card"><div class="pain-icon">💸</div><h3>Платные плагины</h3><p>Форма — плагин. SEO — плагин. Галерея — плагин. Каждый стоит денег.</p></div>
+    <div class="pain-card"><div class="pain-icon">😵</div><h3>Перегружен</h3><p>Десятки пунктов меню, непонятные настройки. Простое изменение — квест.</p></div>
+    <div class="pain-card"><div class="pain-icon">🔧</div><h3>Нужен разработчик</h3><p>Поменять цвет кнопки или структуру страницы — звони разработчику, жди, плати.</p></div>
+  </div>
+  <div class="slide-num">2 / 12</div>
+</section>
+
+<!-- 3: OUR STACK -->
+<section id="s3">
+  <span class="section-tag">Наш подход</span>
+  <h2>Что мы используем<br><span>и почему это лучше</span></h2>
+  <div class="stack-two">
+    <div class="stack-card accent">
+      <div class="label">Генератор сайта</div>
+      <h3>11ty</h3>
+      <p>Превращает шаблоны и данные в чистый HTML при каждом изменении. Никакой базы данных при загрузке.</p>
+      <div class="analogy">Как печатная машинка: один раз набрал — получил готовый документ. Читать может кто угодно, мгновенно.</div>
+    </div>
+    <div class="stack-card">
+      <div class="label">Система управления</div>
+      <h3>Directus</h3>
+      <p>Удобная панель управления контентом. Все тексты, фото, цены редактируются без знания кода.</p>
+      <div class="analogy">Как WordPress, но без лишнего мусора: только то, что нужно именно вашему сайту.</div>
+    </div>
+  </div>
+  <div class="slide-num">3 / 12</div>
+</section>
+
+<!-- 4: COMPARISON -->
+<section id="s4">
+  <span class="section-tag">Сравнение</span>
+  <h2>Наш стек <span>против WordPress</span></h2>
+  <table class="compare-table">
+    <thead>
+      <tr><th>Критерий</th><th>WordPress</th><th>Наш стек</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Скорость загрузки</td><td class="bad">Средняя, зависит от хостинга</td><td class="good">Мгновенная — статичный HTML</td></tr>
+      <tr><td>Безопасность</td><td class="bad">Взламывают регулярно</td><td class="good">Нечего взламывать</td></tr>
+      <tr><td>Обновления</td><td class="bad">Ломают сайт</td><td class="good">Не нужны</td></tr>
+      <tr><td>Интерфейс панели</td><td class="bad">Перегружен, сложно найти</td><td class="good">Только нужные разделы</td></tr>
+      <tr><td>Язык интерфейса</td><td class="bad">Частично на русском</td><td class="good">Полностью на русском</td></tr>
+      <tr><td>Стоимость поддержки</td><td class="bad">Высокая</td><td class="good">Минимальная</td></tr>
+      <tr><td>Плагины</td><td class="bad">Нужны, часть платные</td><td class="good">Не нужны</td></tr>
+    </tbody>
+  </table>
+  <div class="slide-num">4 / 12</div>
+</section>
+
+<!-- 5: DIRECTUS SUBSERVICE DEEP DIVE -->
+<section id="s5">
+  <span class="section-tag">Управление подуслугами</span>
+  <h2>Полная настройка<br><span>каждой подуслуги</span></h2>
+  <p class="sub-text">В каждой подуслуге — своя страница с названием, описанием, фото, прайс-листом и FAQ. Всё редактируется без разработчика.</p>
+  <div class="sub-screens">
+    <div class="sub-screen">
+      <img src="screenshots/dir-subservices-list.jpg" alt="Список подуслуг">
+      <div class="label">Список всех подуслуг — 16 штук</div>
+    </div>
+    <div class="sub-screen">
+      <img src="screenshots/dir-sub-full2.jpg" alt="Редактирование подуслуги">
+      <div class="label">Полная форма: название, фото, прайс, FAQ, текстовые блоки, hero</div>
+    </div>
+  </div>
+  <div class="slide-num">5 / 12</div>
+</section>
+
+<!-- 6: SETTINGS -->
+<section id="s6">
+  <div class="dir-layout">
+    <div class="dir-screen-side"><img src="screenshots/dir-settings.jpg" alt="Настройки студии"></div>
+    <div class="dir-text">
+      <span class="section-tag">Контакты и реквизиты</span>
+      <h2>Название, телефон, адрес —<br><span>в одном месте</span></h2>
+      <p>Все контактные данные редактируются как обычная форма. Изменил — сохранил — данные обновились на сайте.</p>
+      <ul class="dir-features">
+        <li>Название и слоган студии</li>
+        <li>Телефон и ссылка для звонка</li>
+        <li>Адрес и график работы</li>
+        <li>Email и ссылка на Telegram</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">6 / 12</div>
+</section>
+
+<!-- 7: HERO SLIDES -->
+<section id="s7">
+  <div class="dir-layout">
+    <div class="dir-screen-side"><img src="screenshots/dir-hero.jpg" alt="Слайды на главной"></div>
+    <div class="dir-text">
+      <span class="section-tag">Главная страница</span>
+      <h2>Слайды на главной —<br><span>в 2 клика</span></h2>
+      <p>Каждый слайд — заголовок, подзаголовок и фото для ПК и телефона. Нажал на строку — изменил — сохранил.</p>
+      <ul class="dir-features">
+        <li>Заголовок и подзаголовок слайда</li>
+        <li>Фото для десктопа и мобильного</li>
+        <li>Видео-фон (если нужно)</li>
+        <li>Порядок слайдов — перетаскиванием</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">7 / 12</div>
+</section>
+
+<!-- 8: SERVICES -->
+<section id="s8">
+  <div class="dir-layout">
+    <div class="dir-screen-side"><img src="screenshots/dir-services.jpg" alt="Услуги"></div>
+    <div class="dir-text">
+      <span class="section-tag">Услуги</span>
+      <h2>Добавить или изменить<br><span>услугу — без разработчика</span></h2>
+      <p>Все услуги и подуслуги редактируются в панели. Каждая услуга: название, описание, фото, прайс, FAQ.</p>
+      <ul class="dir-features">
+        <li>Название и описание услуги</li>
+        <li>Фото для карточки и страницы</li>
+        <li>Прайс-лист по каждой позиции</li>
+        <li>Вопросы и ответы на странице услуги</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">8 / 12</div>
+</section>
+
+<!-- 9: GALLERY -->
+<section id="s9">
+  <div class="dir-layout">
+    <div class="dir-screen-side"><img src="screenshots/dir-works.jpg" alt="Галерея работ"></div>
+    <div class="dir-text">
+      <span class="section-tag">Галерея работ</span>
+      <h2>Загрузил фото —<br><span>сразу на сайте</span></h2>
+      <p>Добавляешь фото выполненной работы — оно появляется в галерее. Порядок меняется перетаскиванием.</p>
+      <ul class="dir-features">
+        <li>Загрузка фото прямо в панели</li>
+        <li>Описание к каждому фото</li>
+        <li>Сортировка перетаскиванием</li>
+        <li>Оптимизация изображений автоматически</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">9 / 12</div>
+</section>
+
+<!-- 10: REVIEWS -->
+<section id="s10">
+  <div class="dir-layout">
+    <div class="dir-screen-side"><img src="screenshots/dir-reviews.jpg" alt="Отзывы"></div>
+    <div class="dir-text">
+      <span class="section-tag">Отзывы</span>
+      <h2>Новый отзыв —<br><span>за 30 секунд</span></h2>
+      <p>Клиент оставил отзыв на Яндексе или 2ГИС? Добавляешь в панели: имя, текст, оценка, источник.</p>
+      <ul class="dir-features">
+        <li>Имя клиента и текст отзыва</li>
+        <li>Оценка (звёзды) и источник</li>
+        <li>Не нужны сторонние виджеты</li>
+        <li>Полный контроль над отображением</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">10 / 12</div>
+</section>
+
+<!-- 11: WHY WINS -->
+<section id="s11">
+  <span class="section-tag">Итог</span>
+  <h2>Почему Directus <span>удобнее</span> WordPress</h2>
+  <div class="why-grid">
+    <div class="why-card"><div class="w-icon">🎯</div><h3>Только нужное</h3><p>Нет лишних пунктов меню. Только разделы вашего сайта.</p></div>
+    <div class="why-card"><div class="w-icon">🇷🇺</div><h3>Всё на русском</h3><p>Интерфейс полностью на русском. Никакого английского жаргона.</p></div>
+    <div class="why-card"><div class="w-icon">🛡️</div><h3>Не страшно нажать</h3><p>Невозможно случайно сломать сайт. Редактируете только контент.</p></div>
+    <div class="why-card"><div class="w-icon">⚡</div><h3>Без плагинов</h3><p>Всё что нужно — уже встроено и настроено под ваш сайт.</p></div>
+    <div class="why-card"><div class="w-icon">📱</div><h3>Работает с телефона</h3><p>Панель управления открывается с любого устройства.</p></div>
+    <div class="why-card"><div class="w-icon">💰</div><h3>Дешевле в поддержке</h3><p>Нет обновлений плагинов, нет их конфликтов, нет регулярных платежей.</p></div>
+  </div>
+  <div class="slide-num">11 / 12</div>
+</section>
+
+<!-- 12: CTA -->
+<section id="s12">
+  <h2>Готовы перейти<br><span>на современный стек?</span></h2>
+  <p>Обсудим детали и ответим на любые вопросы</p>
+  <div class="cta-brand">Web разработка</div>
+  <div class="slide-num">12 / 12</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+  });
+</script>
+</body>
+</html>

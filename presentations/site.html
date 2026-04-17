@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ваш сайт — Web разработка</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0d; --card: #161616; --border: #222;
+    --yellow: #f0c040; --yellow-dim: rgba(240,192,64,.12);
+    --text: #e8e8e8; --muted: #888;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); }
+
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--yellow); z-index: 200; width: 0; transition: width .3s; }
+  .brand { position: fixed; top: 24px; right: 36px; font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; z-index: 100; }
+
+  /* SECTIONS */
+  section {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 80px 64px; position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; display: block; }
+
+  /* SECTION 1 — COVER */
+  #s1 { background: radial-gradient(ellipse at 60% 40%, #1a1500 0%, var(--bg) 65%); gap: 0; padding: 0; overflow: hidden; }
+  #s1 .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; }
+  #s1 .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 80px 64px; text-align: center; }
+  #s1 .badge { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--yellow); background: var(--yellow-dim); border: 1px solid rgba(240,192,64,.3); border-radius: 40px; padding: 6px 18px; }
+  #s1 h1 { font-size: clamp(36px, 5vw, 62px); font-weight: 800; line-height: 1.12; max-width: 700px; }
+  #s1 h1 span { color: var(--yellow); }
+  #s1 p { font-size: 16px; color: rgba(255,255,255,.6); max-width: 480px; }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--yellow); color: var(--yellow); padding: 12px 28px; border-radius: 40px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background .2s, color .2s; }
+  .btn-outline:hover { background: var(--yellow); color: #000; }
+
+  /* SECTION 2 — DESKTOP */
+  #s2 { gap: 28px; }
+  #s2 h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 800; text-align: center; margin-bottom: 4px; }
+  #s2 p { font-size: 15px; color: var(--muted); text-align: center; margin-bottom: 8px; }
+  .screen-wrap { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 32px 80px rgba(0,0,0,.6); max-width: 960px; width: 100%; }
+  .screen-wrap img { width: 100%; display: block; }
+  .bar { height: 28px; background: #1a1a1a; display: flex; align-items: center; gap: 6px; padding: 0 12px; }
+  .bar-dot { width: 9px; height: 9px; border-radius: 50%; }
+
+  /* SECTION 3 — SEO STRUCTURE */
+  #s3 { gap: 0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; width: 100%; max-width: 1000px; }
+  .col-text h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+  .col-text h2 span { color: var(--yellow); }
+  .col-text p { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+  .fact-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .fact-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; }
+  .fact-list li::before { content: ''; flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; background: var(--yellow-dim); border: 1.5px solid rgba(240,192,64,.4); border-radius: 50%; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23f0c040' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 12px; }
+  .pages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .page-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+
+  /* SECTION 4 — SCHEMA */
+  #s4 { gap: 36px; }
+  #s4 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  #s4 h2 span { color: var(--yellow); }
+  #s4 .sub-text { font-size: 15px; color: var(--muted); text-align: center; max-width: 600px; }
+  .snippet-mock { background: #fff; border-radius: 10px; padding: 20px 24px; max-width: 560px; width: 100%; box-shadow: 0 8px 40px rgba(0,0,0,.5); }
+  .snippet-mock .s-url { font-size: 12px; color: #1a0dab; margin-bottom: 2px; }
+  .snippet-mock .s-title { font-size: 18px; color: #1a0dab; font-weight: 600; margin-bottom: 4px; }
+  .snippet-mock .s-stars { color: #f5a623; font-size: 14px; margin-bottom: 4px; }
+  .snippet-mock .s-phone { font-size: 13px; color: #444; margin-bottom: 2px; font-weight: 600; }
+  .snippet-mock .s-addr { font-size: 13px; color: #444; margin-bottom: 2px; }
+  .snippet-mock .s-hours { font-size: 13px; color: #188038; }
+  .snippet-mock .s-desc { font-size: 13px; color: #444; margin-top: 6px; line-height: 1.5; }
+  .schema-label { font-size: 12px; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 6px 14px; }
+
+  /* SECTION 5 — MOBILE */
+  #s5 { }
+  .mobile-layout { display: flex; align-items: center; gap: 60px; max-width: 900px; width: 100%; }
+  .mobile-frame { flex-shrink: 0; width: 220px; border-radius: 28px; overflow: hidden; border: 6px solid #222; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  .mobile-frame img { width: 100%; display: block; }
+  .mobile-text h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; margin-bottom: 16px; }
+  .mobile-text h2 span { color: var(--yellow); }
+  .mobile-text p { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
+  .stat-row { display: flex; gap: 20px; }
+  .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 22px; text-align: center; }
+  .stat-box .num { font-size: 28px; font-weight: 800; color: var(--yellow); }
+  .stat-box .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* SECTION 6 — TELEGRAM */
+  #s6 { gap: 36px; }
+  #s6 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  #s6 h2 span { color: var(--yellow); }
+  .tg-layout { display: flex; align-items: flex-start; gap: 48px; max-width: 960px; width: 100%; }
+  .tg-screen { flex: 1.2; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
+  .tg-screen img { width: 100%; display: block; }
+  .tg-right { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+  .tg-step { display: flex; align-items: flex-start; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+  .tg-step .num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--yellow-dim); border: 1.5px solid rgba(240,192,64,.4); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--yellow); }
+  .tg-step .txt { font-size: 14px; line-height: 1.5; }
+  .tg-step .txt strong { color: var(--yellow); }
+
+  /* SECTION 7 — SPEED */
+  #s7 { gap: 40px; }
+  #s7 h2 { font-size: clamp(22px, 2.8vw, 34px); font-weight: 800; text-align: center; }
+  #s7 h2 span { color: var(--yellow); }
+  .speed-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; width: 100%; }
+  .speed-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .speed-card .icon { font-size: 28px; }
+  .speed-card h3 { font-size: 16px; font-weight: 700; }
+  .speed-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .speed-card.accent { border-color: rgba(240,192,64,.3); background: linear-gradient(135deg, #1a1500, var(--card)); }
+
+  /* SECTION 8 — CTA */
+  #s8 { background: radial-gradient(ellipse at 40% 60%, #1a1500 0%, var(--bg) 65%); gap: 20px; }
+  #s8 h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 800; text-align: center; }
+  #s8 h2 span { color: var(--yellow); }
+  #s8 p { font-size: 16px; color: var(--muted); text-align: center; }
+  .cta-brand { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--yellow); margin-top: 12px; }
+
+  /* DIVIDER */
+  .slide-num { position: absolute; bottom: 28px; right: 36px; font-size: 12px; color: #333; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="brand">Web разработка</div>
+
+<!-- 1: COVER -->
+<section id="s1">
+  <div class="hero-content">
+    <div class="badge">Презентация сайта</div>
+    <h1>Сайт для вашей<br><span>детейлинг студии</span></h1>
+    <p>Современный, быстрый, заточенный под Google</p>
+    <a href="https://webautodesigner.github.io/detailing/v2/" target="_blank" class="btn-outline">Открыть сайт →</a>
+  </div>
+  <div class="slide-num">1 / 8</div>
+</section>
+
+<!-- 2: DESKTOP -->
+<section id="s2">
+  <span class="section-tag">Первое впечатление</span>
+  <h2>Выглядит дорого с первого экрана</h2>
+  <p>Тёмная тема, профессиональные фото, чёткая навигация</p>
+  <div class="screen-wrap">
+    <div class="bar">
+      <div class="bar-dot" style="background:#ff5f57"></div>
+      <div class="bar-dot" style="background:#febc2e"></div>
+      <div class="bar-dot" style="background:#28c840"></div>
+    </div>
+    <img src="screenshots/site-main.jpg" alt="Главная страница">
+  </div>
+  <div class="slide-num">2 / 8</div>
+</section>
+
+<!-- 3: SEO STRUCTURE -->
+<section id="s3">
+  <div class="two-col">
+    <div class="col-text">
+      <span class="section-tag">SEO структура</span>
+      <h2>Каждая услуга —<br><span>отдельная точка входа</span><br>из Google</h2>
+      <p>Каждая услуга и подуслуга имеет собственную страницу. Человек ищет конкретное — попадает именно туда, не на главную.</p>
+      <ul class="fact-list">
+        <li>30 страниц = 30 шансов попасть в топ поиска</li>
+        <li>Запрос "полировка кузова цена" → страница полировки</li>
+        <li>Так устроено меньшинство сайтов конкурентов</li>
+      </ul>
+    </div>
+    <div class="pages-grid">
+      <div class="page-item">🏠 Главная</div>
+      <div class="page-item">🛡️ Оклейка плёнкой</div>
+      <div class="page-item">✨ Полировка авто</div>
+      <div class="page-item">🧴 Керамика</div>
+      <div class="page-item">🚗 Детейлинг уход</div>
+      <div class="page-item">🔇 Шумоизоляция</div>
+      <div class="page-item">🎨 Антихром</div>
+      <div class="page-item">🪟 Тонировка</div>
+      <div class="page-item">🛋️ Реставрация</div>
+      <div class="page-item">📋 + подуслуги</div>
+    </div>
+  </div>
+  <div class="slide-num">3 / 8</div>
+</section>
+
+<!-- 4: SCHEMA.ORG -->
+<section id="s4">
+  <span class="section-tag">Поисковая выдача</span>
+  <h2>Google показывает вас<br><span>ещё до клика</span></h2>
+  <p class="sub-text">Сайт передаёт Google структурированные данные: адрес, телефон, тип бизнеса. В выдаче выглядит как полноценная визитка.</p>
+  <div class="snippet-mock">
+    <div class="s-url">yourstudio.ru › deteyling-avtomobilya</div>
+    <div class="s-title">Детейлинг студия — профессиональный уход за авто</div>
+    <div class="s-stars">★★★★★ <span style="color:#444;font-size:12px">4.9 · 127 отзывов · Автосервис</span></div>
+    <div class="s-phone">📞 +7 (000) 000-00-00</div>
+    <div class="s-addr">📍 Ваш город, ул. Ваша улица</div>
+    <div class="s-hours">⏰ Открыто · Пн–Вс: 9:00–20:00</div>
+    <div class="s-desc">Профессиональный детейлинг, оклейка плёнкой, полировка, керамика. Работаем с 2015 года. Более 2000 автомобилей.</div>
+  </div>
+  <div class="schema-label">Schema.org AutoRepair — подключено и настроено</div>
+  <div class="slide-num">4 / 8</div>
+</section>
+
+<!-- 5: MOBILE -->
+<section id="s5">
+  <div class="mobile-layout">
+    <div class="mobile-frame">
+      <img src="screenshots/site-mobile-services.jpg" alt="Мобильная версия — услуги">
+    </div>
+    <div class="mobile-text">
+      <span class="section-tag">Мобильная версия</span>
+      <h2><span>70% клиентов</span><br>придут с телефона</h2>
+      <p>Мобильная версия спроектирована с нуля. Услуги, прайс, форма записи — всё доступно одним пальцем.</p>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="num">70%</div>
+          <div class="lbl">трафика с мобильных</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">×2</div>
+          <div class="lbl">влияние на SEO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">5 / 8</div>
+</section>
+
+<!-- 6: TELEGRAM -->
+<section id="s6">
+  <span class="section-tag">Конверсия в заявки</span>
+  <h2>Заявка — <span>сразу в Telegram</span></h2>
+  <div class="tg-layout">
+    <div class="tg-screen">
+      <img src="screenshots/site-form-only.jpg" alt="Форма заявки">
+    </div>
+    <div class="tg-right">
+      <div class="tg-step">
+        <div class="num">1</div>
+        <div class="txt">Клиент заполняет форму — имя, телефон, комментарий</div>
+      </div>
+      <div class="tg-step">
+        <div class="num">2</div>
+        <div class="txt"><strong>Мгновенно</strong> приходит сообщение в Telegram с данными</div>
+      </div>
+      <div class="tg-step">
+        <div class="num">3</div>
+        <div class="txt">Не нужно заходить в панель сайта, проверять почту или CRM</div>
+      </div>
+      <div class="tg-step" style="border-color:rgba(40,200,64,.3)">
+        <div class="num" style="color:#28c840;background:rgba(40,200,64,.1);border-color:rgba(40,200,64,.3)">✓</div>
+        <div class="txt">Каждый лид — у вас в телефоне в течение секунды</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">6 / 8</div>
+</section>
+
+<!-- 7: SPEED -->
+<section id="s7">
+  <span class="section-tag">Производительность</span>
+  <h2>Грузится <span>мгновенно</span> и не падает</h2>
+  <div class="speed-cards">
+    <div class="speed-card accent">
+      <div class="icon">⚡</div>
+      <h3>Статический сайт</h3>
+      <p>Страница отдаётся за миллисекунды — нет базы данных при каждом визите.</p>
+    </div>
+    <div class="speed-card">
+      <div class="icon">🔍</div>
+      <h3>Google любит скорость</h3>
+      <p>Скорость загрузки напрямую влияет на позицию в поиске.</p>
+    </div>
+    <div class="speed-card">
+      <div class="icon">🔒</div>
+      <h3>Нечего взломать</h3>
+      <p>Нет CMS, нет динамики, нет уязвимостей. Статика — самый защищённый тип сайта.</p>
+    </div>
+  </div>
+  <div class="slide-num">7 / 8</div>
+</section>
+
+<!-- 8: CTA -->
+<section id="s8">
+  <h2>Готовы запустить<br><span>ваш сайт?</span></h2>
+  <p>Обсудим детали, настроим под ваш бренд</p>
+  <div class="cta-brand">Web разработка</div>
+  <div class="slide-num">8 / 8</div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+  });
+</script>
+</body>
+</html>
