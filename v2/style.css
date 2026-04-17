@@ -423,7 +423,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hero__controls { right: 16px; bottom: 20px; }
 
   /* Stats */
-  .stats__inner { padding: 20px; display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; max-width: max-content; margin: 0 auto; align-items: center; }
+  .stats__inner { padding: 20px; display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; align-items: center; }
   .stats__item { display: contents; }
   .stats__value { font-size: clamp(1.6rem, 6vw, 2.2rem); white-space: nowrap; }
   .stats__label { font-size: 15px; }
