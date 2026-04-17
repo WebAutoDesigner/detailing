@@ -308,9 +308,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 /* Section 1: fullscreen map */
 .contacts-map-section { position: relative; height: 100vh; overflow: hidden; }
-/* iframe вылезает за все края на 80px — обрезается overflow:hidden родителя,
-   все кнопки управления Яндекса (зум, стрелка, attribution) уходят за обрез */
-.contacts-map-full { position: absolute; inset: -80px; }
+/* Extend only upward to slide under the header; bottom/sides flush so map controls stay visible */
+.contacts-map-full { position: absolute; top: -80px; left: 0; right: 0; bottom: 0; }
 .contacts-map-full iframe { width: 100%; height: 100%; border: none; display: block; }
 /* Blocks all map clicks/scroll */
 .contacts-map-blocker { position: absolute; inset: 0; z-index: 1; }

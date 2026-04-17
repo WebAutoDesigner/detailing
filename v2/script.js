@@ -69,7 +69,7 @@ const rNext = document.getElementById('reviewsNext');
 if (track) {
   let rIdx = 0;
   const cards = track.querySelectorAll('.review-card');
-  const getVisible = () => window.innerWidth > 900 ? 4 : window.innerWidth > 600 ? 2 : 1;
+  const getVisible = () => window.innerWidth > 900 ? 4 : window.innerWidth > 768 ? 2 : 1;
 
   const rGoTo = (idx) => {
     const visible = getVisible();
@@ -107,6 +107,7 @@ if (ctaForm) {
       }
     } catch {
       btn.textContent = 'Ошибка. Позвоните нам';
+      btn.disabled = false;
     }
   });
 }
