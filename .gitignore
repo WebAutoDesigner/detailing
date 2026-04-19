@@ -1,3 +1,5 @@
 _site/
+_site_deploy/
 node_modules/
 .env
+images/directus/

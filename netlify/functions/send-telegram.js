@@ -1,3 +1,8 @@
+const escape = s => String(s)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;');
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -15,14 +20,21 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: 'Invalid JSON' };
   }
 
-  const { name = '-', phone = '-', service = '' } = data;
+  const { name = '-', phone = '-', service = '', message = '' } = data;
+
+  // Sanitize all user input to prevent HTML injection in Telegram messages
+  const safeName    = escape(name).slice(0, 200);
+  const safePhone   = escape(phone).slice(0, 50);
+  const safeService = escape(service).slice(0, 200);
+  const safeMessage = escape(message).slice(0, 1000);
 
   const text = [
     '📩 <b>Новая заявка с сайта Brooklands</b>',
     '',
-    `👤 Имя: ${name}`,
-    `📞 Телефон: ${phone}`,
-    service ? `🔧 Услуга: ${service}` : '',
+    `👤 Имя: ${safeName}`,
+    `📞 Телефон: ${safePhone}`,
+    safeService ? `🔧 Услуга: ${safeService}` : '',
+    safeMessage ? `💬 Комментарий: ${safeMessage}` : '',
   ].filter(Boolean).join('\n');
 
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;

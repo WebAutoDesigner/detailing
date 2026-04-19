@@ -6,7 +6,7 @@ permalink: /nashi-raboty/
 ---
 
 <!-- PAGE HERO -->
-<section class="page-hero page-hero--full" style="background-image: url('{{ pagedata.worksHeroBg }}')">
+<section class="page-hero page-hero--full" style="--hero-bg: url('{{ site.ctaBg }}'); --hero-bg-mobile: url('{{ pagedata.worksHeroBg }}')">
   <div class="page-hero__overlay"></div>
   <div class="page-hero__content">
     <nav class="breadcrumb" aria-label="Хлебные крошки">
@@ -40,7 +40,7 @@ permalink: /nashi-raboty/
 
 <!-- CTA -->
 <section class="cta-form contacts-cta">
-  <div class="cta-form__bg" style="background-image: url('{{ site.ctaBg }}')"></div>
+  <div class="cta-form__bg" style="--cta-bg-desk: url('{{ pagedata.worksHeroBg }}'); --cta-bg-mob: url('{{ site.ctaBg }}')"></div>
   <div class="contacts-cta__inner">
     <h2>Хотите такой же результат?</h2>
     <p>Оставьте заявку — мы свяжемся, обсудим задачу и подберём оптимальный пакет услуг для вашего автомобиля.</p>

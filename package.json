@@ -1,11 +1,19 @@
 {
   "name": "broklands",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "clean-cache": "node -e \"const fs=require('fs');const d='images/directus';if(fs.existsSync(d)){fs.readdirSync(d).forEach(f=>fs.unlinkSync(d+'/'+f));console.log('Cache cleared');}else{console.log('No cache dir');}\"",
+    "rebuild": "npm run clean-cache && npm run build"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }

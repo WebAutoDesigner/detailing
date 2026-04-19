@@ -69,7 +69,7 @@ const rNext = document.getElementById('reviewsNext');
 if (track) {
   let rIdx = 0;
   const cards = track.querySelectorAll('.review-card');
-  const getVisible = () => window.innerWidth > 900 ? 4 : window.innerWidth > 600 ? 2 : 1;
+  const getVisible = () => window.innerWidth > 900 ? 4 : window.innerWidth > 768 ? 2 : 1;
 
   const rGoTo = (idx) => {
     const visible = getVisible();
@@ -85,31 +85,74 @@ if (track) {
 }
 
 // ===== CONTACT FORM =====
-const ctaForm = document.getElementById('ctaForm');
-if (ctaForm) {
-  ctaForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(ctaForm));
-    const btn = ctaForm.querySelector('button[type="submit"]');
-    btn.textContent = 'Отправляем...';
-    btn.disabled = true;
-    try {
-      const res = await fetch('/.netlify/functions/send-telegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        btn.textContent = 'Заявка отправлена ✓';
-        ctaForm.reset();
-      } else {
-        throw new Error();
-      }
-    } catch {
-      btn.textContent = 'Ошибка. Позвоните нам';
-    }
-  });
+function validatePhone(input) {
+  const digits = input.value.replace(/\D/g, '');
+  const normalized = digits.startsWith('8') ? '7' + digits.slice(1) : digits;
+  const valid = /^7\d{10}$/.test(normalized);
+  let errEl = input.nextElementSibling;
+  if (!errEl || !errEl.classList.contains('field-error')) {
+    errEl = document.createElement('span');
+    errEl.className = 'field-error';
+    input.after(errEl);
+  }
+  if (!valid) {
+    input.classList.add('input--error');
+    errEl.textContent = 'Введите номер в формате +7, 8 или 7 (11 цифр)';
+  } else {
+    input.classList.remove('input--error');
+    errEl.textContent = '';
+  }
+  return valid;
 }
+
+async function submitForm(form, onSuccess) {
+  const phoneInput = form.querySelector('input[type="tel"]');
+  if (phoneInput && !validatePhone(phoneInput)) return;
+
+  const agreeInput = form.querySelector('input[type="checkbox"]');
+  if (agreeInput && !agreeInput.checked) {
+    const label = agreeInput.closest('label');
+    if (label) {
+      label.style.color = '#ff4444';
+      let errEl = label.nextElementSibling;
+      if (!errEl || !errEl.classList.contains('field-error')) {
+        errEl = document.createElement('span');
+        errEl.className = 'field-error';
+        label.after(errEl);
+      }
+      errEl.textContent = 'Необходимо согласие на обработку данных';
+    }
+    return;
+  }
+  const agreeErr = form.querySelector('.field-error');
+  if (agreeErr) agreeErr.textContent = '';
+  const data = Object.fromEntries(new FormData(form));
+  const btn = form.querySelector('button[type="submit"]');
+  const origText = btn.textContent;
+  btn.textContent = 'Отправляем...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/send-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      btn.textContent = 'Заявка отправлена ✓';
+      form.reset();
+      if (onSuccess) onSuccess();
+    } else { throw new Error(); }
+  } catch {
+    btn.textContent = 'Ошибка. Позвоните нам';
+    btn.disabled = false;
+  }
+}
+
+document.querySelectorAll('.cta-form__form').forEach(form => {
+  const phoneInput = form.querySelector('input[type="tel"]');
+  if (phoneInput) phoneInput.addEventListener('input', () => validatePhone(phoneInput));
+  form.addEventListener('submit', e => { e.preventDefault(); submitForm(form); });
+});
 
 // ===== FAQ ACCORDION =====
 document.querySelectorAll('.faq-item__btn').forEach(btn => {
@@ -150,36 +193,48 @@ if (modal) {
 
   const modalForm = document.getElementById('modalForm');
   if (modalForm) {
-    modalForm.addEventListener('submit', async (e) => {
+    const modalPhone = modalForm.querySelector('input[type="tel"]');
+    if (modalPhone) modalPhone.addEventListener('input', () => validatePhone(modalPhone));
+    modalForm.addEventListener('submit', e => {
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(modalForm));
-      const btn = modalForm.querySelector('button[type="submit"]');
-      btn.textContent = 'Отправляем...';
-      btn.disabled = true;
-      try {
-        const res = await fetch('/.netlify/functions/send-telegram', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        if (res.ok) {
-          btn.textContent = 'Заявка отправлена ✓';
-          modalForm.reset();
-          setTimeout(closeModal, 2000);
-        } else { throw new Error(); }
-      } catch {
-        btn.textContent = 'Ошибка. Позвоните нам';
-        btn.disabled = false;
-      }
+      submitForm(modalForm, () => setTimeout(closeModal, 2000));
     });
   }
 }
 
 // ===== BURGER MENU =====
 const burger = document.getElementById('burger');
-if (burger) {
-  burger.addEventListener('click', () => {
-    const nav = document.querySelector('.header__nav');
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavClose = document.getElementById('mobileNavClose');
+const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+const openMobileNav = () => {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  burger.classList.add('burger--open');
+  document.body.style.overflow = 'hidden';
+};
+const closeMobileNav = () => {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  if (burger) burger.classList.remove('burger--open');
+  document.body.style.overflow = '';
+};
+
+if (burger) burger.addEventListener('click', openMobileNav);
+if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileNav);
+if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileNav);
+document.querySelectorAll('.mobile-nav__link').forEach(l => l.addEventListener('click', closeMobileNav));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+
+// ===== VIDEO RESUME ON PAGE VISIBILITY =====
+const heroVideo = document.querySelector('.hero__video-bg');
+if (heroVideo) {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      setTimeout(() => { heroVideo.play().catch(() => {}); }, 300);
+    }
   });
 }
+
+

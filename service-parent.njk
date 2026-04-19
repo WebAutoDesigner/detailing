@@ -9,7 +9,7 @@ bodyClass: page-subservice
 ---
 
 <!-- HERO -->
-<section class="page-hero page-hero--full" style="background-image: url('{{ svc.img }}')">
+<section class="page-hero page-hero--full" style="--hero-bg: url('{{ svc.img }}'); --hero-bg-mobile: url('{{ svc.imgMobile }}')">
   <div class="page-hero__overlay"></div>
   <div class="page-hero__content">
     <div class="breadcrumb">
@@ -42,28 +42,8 @@ bodyClass: page-subservice
 </section>
 {% endif %}
 
-<!-- PRICE TABLE -->
-{% if svc.rows %}
-<section class="price-section" id="price">
-  <div class="price-section__inner">
-    <h2 class="section-title">// {{ svc.tableTitle }}</h2>
-    <p class="price-note">Конкретные цены зависят от автомобиля. Точную стоимость уточняйте у менеджера.</p>
-    <div class="price-table">
-      {% for row in svc.rows %}
-      <div class="price-row">
-        <span class="price-row__name">{{ row.name }}</span>
-        <span class="price-row__dots"></span>
-        <span class="price-row__price">{{ row.price }}</span>
-      </div>
-      {% endfor %}
-    </div>
-    <button class="btn btn--outline js-open-modal" style="margin-top: 32px;">Записаться на услугу</button>
-  </div>
-</section>
-{% endif %}
-
 <!-- DESCRIPTION -->
-{% if svc.descBlocks %}
+{% if svc.descBlocks | length %}
 <section class="service-desc">
   <div class="service-desc__inner">
     {% for block in svc.descBlocks %}
@@ -78,7 +58,7 @@ bodyClass: page-subservice
 
 <!-- CTA FORM -->
 <section class="cta-form contacts-cta" id="contact-form">
-  <div class="cta-form__bg" style="background-image: url('{{ site.ctaBg }}')"></div>
+  <div class="cta-form__bg" style="--cta-bg-desk: url('{{ pagedata.worksHeroBg }}'); --cta-bg-mob: url('{{ site.ctaBg }}')"></div>
   <div class="contacts-cta__inner">
     <h2>Рассчитать стоимость</h2>
     <p>Оставьте свой номер телефона и наш менеджер свяжется с вами в ближайшее время</p>
@@ -87,7 +67,7 @@ bodyClass: page-subservice
       <input type="text" name="name" placeholder="Ваше имя" required>
       <input type="tel" name="phone" placeholder="Номер телефона" required>
       <label class="cta-form__checkbox">
-        <input type="checkbox" required>
+        <input type="checkbox" name="agree" required>
         <span>Нажимая кнопку, вы даёте согласие на обработку персональных данных</span>
       </label>
       <button type="submit" class="btn btn--outline">Получить консультацию</button>
