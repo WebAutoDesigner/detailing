@@ -1,9 +1,10 @@
 ---
 layout: base.njk
 pagination:
-  data: parent_services
+  data: parent_services_multi
   size: 1
   alias: svc
+  addAllPagesToCollections: true
 permalink: /{{ svc.slug }}/
 bodyClass: page-subservice
 ---
@@ -76,39 +77,55 @@ bodyClass: page-subservice
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews">
+<section class="reviews reviews--cards">
   <div class="reviews__header">
     <h2 class="section-title">// Отзывы</h2>
-    <p>Отзывы помогают нашей команде становиться лучше</p>
   </div>
-  <div class="reviews__track-wrap">
-    <div class="reviews__track" id="reviewsTrack">
-      {% for review in pagedata.reviews %}
-      <div class="review-card">
-        <div class="review-card__top">
-          <div class="review-card__avatar">{{ review.avatar }}</div>
-          <div>
-            <div class="review-card__name">{{ review.name }}</div>
-            <div class="review-card__stars">{% for i in range(0, review.rating) %}★{% endfor %}</div>
+  <div class="reviews__slider-outer">
+    <button class="reviews__arrow" id="reviewsPrev" aria-label="Предыдущие">
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="reviews__overflow">
+      <div class="reviews__track" id="reviewsTrack">
+        {% for review in pagedata.reviews %}
+        <div class="review-card">
+          <div class="review-card__logo">
+            <span class="review-card__logo-y">Я</span><span class="review-card__logo-t">ндекс</span>
           </div>
-          <div class="review-card__source">
-            {% if review.source === "yandex" %}
-            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
-            {% else %}
-            <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
-            {% endif %}
+          <div class="review-card__top">
+            <div class="review-card__avatar">{{ review.avatar }}</div>
+            <div>
+              <div class="review-card__name">{{ review.name }}</div>
+              <div class="review-card__stars">{% for i in range(0, review.rating) %}★{% endfor %}</div>
+            </div>
           </div>
+          <p class="review-card__text">{{ review.text }}</p>
         </div>
-        <p class="review-card__text">{{ review.text }}</p>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
+    <button class="reviews__arrow" id="reviewsNext" aria-label="Следующие">
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
-  <div class="reviews__controls">
-    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
-    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  <div class="reviews__dots" id="reviewsDots"></div>
+  {% if site.reviewsWidgetUrl %}
+  <div class="reviews__all-wrap">
+    <a href="{{ site.reviewsWidgetUrl | replace('maps-reviews-widget/', 'maps/org/') | replace('?comments', '/reviews/') }}" target="_blank" rel="noopener" class="btn btn--outline">Читать все отзывы</a>
   </div>
+  {% endif %}
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "{{ site.siteUrl }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ svc.title }}", "item": "{{ site.siteUrl }}/{{ svc.slug }}/" }
+  ]
+}
+</script>
 
 <!-- FAQ -->
 {% if svc.faq and svc.faq | length %}

@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% set pageTitle %}{% if sub %}{{ sub.title }}{% elif svc %}{{ svc.title }}{% else %}{{ title }}{% endif %} — {{ site.name }}{% endset %}
-  {% set pageDesc %}{% if sub and sub.desc %}{{ sub.desc }}{% elif svc and svc.desc %}{{ svc.desc }}{% elif description %}{{ description }}{% else %}{{ site.tagline }}{% endif %}{% endset %}
+  {% set pageTitle %}{% if sub %}{{ sub.title | trim }} в {{ site.city }}{% elif svc %}{{ svc.title | trim }} в {{ site.city }}{% else %}{{ title }}{% endif %} | {{ site.name }}{% endset %}
+  {% set pageDesc %}{% if sub %}{{ sub.descShort }}{% if sub.minPrice %}. Цены от {{ sub.minPrice }}{% endif %}. Запись: {{ site.phone }}{% elif svc %}{{ svc.descShort }}. Запись: {{ site.phone }}{% elif description %}{{ description }}{% else %}{{ site.tagline }}{% endif %}{% endset %}
   {% set pageUrl %}{{ site.siteUrl }}{{ page.url }}{% endset %}
   {% if sub and sub.img %}
     {% set pageImg %}{{ site.siteUrl }}{{ sub.img }}{% endset %}
   {% elif svc and svc.img %}
     {% set pageImg %}{{ site.siteUrl }}{{ svc.img }}{% endset %}
   {% else %}
-    {% set pageImg %}{{ site.siteUrl }}/images/hero-1.jpg{% endset %}
+    {% if pagedata.hero and pagedata.hero.slides | length %}
+      {% set pageImg %}{{ site.siteUrl }}{{ pagedata.hero.slides[0].bg }}{% endset %}
+    {% else %}
+      {% set pageImg %}{{ site.siteUrl }}/images/hero-1.jpg{% endset %}
+    {% endif %}
   {% endif %}
 
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc | truncate(160) }}">
+  {% if site.regionCode %}<meta name="geo.region" content="{{ site.regionCode }}">{% endif %}
+  {% if site.cityNominative %}<meta name="geo.placename" content="{{ site.cityNominative }}">{% endif %}
   {% if site.siteUrl %}<link rel="canonical" href="{{ pageUrl }}">{% endif %}
 
   <!-- Open Graph -->
@@ -25,6 +31,8 @@
   <meta property="og:description" content="{{ pageDesc | truncate(160) }}">
   <meta property="og:url" content="{{ pageUrl }}">
   <meta property="og:image" content="{{ pageImg }}">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="{{ site.name }}">
 
@@ -35,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style.css?v={{ buildtime }}">
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 
@@ -130,7 +138,7 @@
       <div class="mobile-nav__section">
         <div class="mobile-nav__group-title">Услуги</div>
         {% for service in nav.services %}
-        <a href="/{{ service.slug }}" class="mobile-nav__link">{{ service.name }}</a>
+        <a href="/{{ service.directSlug }}" class="mobile-nav__link">{{ service.name }}</a>
         {% endfor %}
       </div>
       <div class="mobile-nav__section">
@@ -189,7 +197,7 @@
       <h4>Услуги</h4>
       <ul>
         {% for service in nav.services %}
-        <li><a href="/{{ service.slug }}">{{ service.name }}</a></li>
+        <li><a href="/{{ service.directSlug }}">{{ service.name }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -230,7 +238,7 @@
   </div>
 </div>
 
-<script src="/script.js"></script>
+<script src="/script.js?v={{ buildtime }}"></script>
 
 <!-- Schema.org LocalBusiness -->
 <script type="application/ld+json">
@@ -244,9 +252,16 @@
   "image": "{{ site.siteUrl }}/images/hero-1.jpg",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ site.address }}"
+    "streetAddress": "{{ site.address }}",
+    "addressLocality": "{{ site.cityNominative }}",
+    "addressCountry": "RU"
   },
-  "openingHours": "{{ site.workHours }}"
+  "openingHours": "{{ site.workHours }}"{% if site.reviewsRating and site.reviewsCount %},
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ site.reviewsRating }}",
+    "reviewCount": "{{ site.reviewsCount }}"
+  }{% endif %}
 }
 </script>
 </body>

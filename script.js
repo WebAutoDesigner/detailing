@@ -62,26 +62,56 @@ if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
 if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
 // ===== REVIEWS SLIDER =====
-const track = document.getElementById('reviewsTrack');
+const rTrack = document.getElementById('reviewsTrack');
 const rPrev = document.getElementById('reviewsPrev');
 const rNext = document.getElementById('reviewsNext');
+const rDotsEl = document.getElementById('reviewsDots');
 
-if (track) {
+if (rTrack) {
   let rIdx = 0;
-  const cards = track.querySelectorAll('.review-card');
-  const getVisible = () => window.innerWidth > 900 ? 4 : window.innerWidth > 768 ? 2 : 1;
+  const rCards = rTrack.querySelectorAll('.review-card');
+  const rOverflow = rTrack.parentElement;
+  const rGap = 16;
+  const getVisible = () => window.innerWidth > 1024 ? 4 : window.innerWidth > 640 ? 2 : 1;
 
-  const rGoTo = (idx) => {
-    const visible = getVisible();
-    const max = Math.max(0, cards.length - visible);
-    rIdx = Math.min(Math.max(idx, 0), max);
-    const cardW = cards[0].offsetWidth + 20;
-    track.style.transform = `translateX(-${rIdx * cardW}px)`;
+  const setWidths = () => {
+    const ow = rOverflow.offsetWidth;
+    if (!ow) return false;
+    const v = getVisible();
+    const w = (ow - (v - 1) * rGap) / v;
+    rCards.forEach(c => { c.style.width = w + 'px'; });
+    return true;
   };
 
+  const buildDots = () => {
+    if (!rDotsEl) return;
+    const count = Math.max(1, rCards.length - getVisible() + 1);
+    rDotsEl.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+      const d = document.createElement('button');
+      d.className = 'reviews__dot' + (i === rIdx ? ' is-active' : '');
+      d.setAttribute('aria-label', `Страница ${i + 1}`);
+      d.addEventListener('click', () => rGoTo(i));
+      rDotsEl.appendChild(d);
+    }
+  };
+
+  const rGoTo = (idx) => {
+    const max = Math.max(0, rCards.length - getVisible());
+    rIdx = Math.min(Math.max(idx, 0), max);
+    rTrack.style.transform = `translateX(-${rIdx * (rCards[0].offsetWidth + rGap)}px)`;
+    if (rDotsEl) rDotsEl.querySelectorAll('.reviews__dot').forEach((d, i) => d.classList.toggle('is-active', i === rIdx));
+  };
+
+  const init = () => {
+    if (!setWidths()) { requestAnimationFrame(init); return; }
+    buildDots();
+  };
+  requestAnimationFrame(init);
+  window.addEventListener('load', () => { setWidths(); buildDots(); rGoTo(rIdx); });
   if (rPrev) rPrev.addEventListener('click', () => rGoTo(rIdx - 1));
   if (rNext) rNext.addEventListener('click', () => rGoTo(rIdx + 1));
-  window.addEventListener('resize', () => rGoTo(rIdx));
+  window.addEventListener('resize', () => { setWidths(); buildDots(); rGoTo(rIdx); });
 }
 
 // ===== CONTACT FORM =====
@@ -236,5 +266,6 @@ if (heroVideo) {
     }
   });
 }
+
 
 

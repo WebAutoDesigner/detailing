@@ -8,10 +8,11 @@ module.exports = async function () {
       `/items/services?sort=sort&filter[site_id][_eq]=${SITE_ID}&fields=*,subservices.slug,subservices.title,subservices.description,price_rows.name,price_rows.price,price_rows.sort,faq_items.question,faq_items.answer,faq_items.sort,content_blocks.heading,content_blocks.text,content_blocks.sort`
     );
 
-    return Promise.all(services.map(async s => ({
+    const all = await Promise.all(services.map(async s => ({
       slug:       s.slug        || '',
       title:      s.title       || '',
       desc:       s.description || '',
+      descShort:  (s.description || '').split(/[.!?]/)[0].trim(),
       img:        await downloadImg(s.hero_image,        '/images/hero-1.jpg', 'width=1920&quality=85'),
       imgMobile:  await downloadImg(s.hero_image_mobile, '', 'width=768&quality=80') || await downloadImg(s.hero_image, '/images/hero-1.jpg', 'width=768&quality=80'),
       tableTitle: s.table_title || '',
@@ -30,8 +31,10 @@ module.exports = async function () {
         .sort((a, b) => (a.sort || 0) - (b.sort || 0))
         .map(b => ({ h2: b.heading || '', text: b.text || '' })),
     })));
+
+    return all;
   } catch (err) {
-    console.error('[parent_services.js] Directus fetch failed:', err.message);
+    console.error('[parent_services_multi.js] Directus fetch failed:', err.message);
     return [];
   }
 };

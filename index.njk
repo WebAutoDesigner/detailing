@@ -20,7 +20,7 @@ description: Профессиональный детейлинг автомоб�
       <button class="hero__cta-btn hero__cta-btn--mobile js-open-modal">Записаться</button>
       <div class="hero__content">
         <button class="hero__cta-btn hero__cta-btn--desktop js-open-modal">Записаться</button>
-        <h1>{{ slide.title }}</h1>
+        {% if loop.first %}<h1>{{ slide.title }}</h1>{% else %}<p class="hero__slide-title">{{ slide.title }}</p>{% endif %}
         <p>{{ slide.subtitle }}</p>
       </div>
     </div>
@@ -38,12 +38,12 @@ description: Профессиональный детейлинг автомоб�
 {% if pagedata.stats | length %}
 <section class="stats">
   <div class="stats__inner">
-    {% for stat in pagedata.stats %}
+    {% for stat in pagedata.stats %}{% if stat.value and stat.label %}
     <div class="stats__item">
       <span class="stats__value">{{ stat.value }}</span>
       <span class="stats__label">{{ stat.label }}</span>
     </div>
-    {% endfor %}
+    {% endif %}{% endfor %}
   </div>
 </section>
 {% endif %}
@@ -57,7 +57,7 @@ description: Профессиональный детейлинг автомоб�
   <div class="services__grid">
     {% for service in nav.services %}
     <div class="service-card" style="background-image: url('{{ pagedata.servicesMap[service.slug].img if pagedata.servicesMap[service.slug] else '' }}')">
-      <a href="/{{ service.slug }}" class="service-card__link" aria-label="{{ service.name }}"></a>
+      <a href="/{{ service.directSlug }}" class="service-card__link" aria-label="{{ service.name }}"></a>
       <div class="service-card__overlay"></div>
       <span class="service-card__name">{{ service.name }}</span>
       {% if service.subservices | length > 0 %}
@@ -98,48 +98,58 @@ description: Профессиональный детейлинг автомоб�
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews" id="reviews">
+<section class="reviews reviews--cards" id="reviews">
   <div class="reviews__header">
     <h2 class="section-title">// Отзывы</h2>
-    <p>Отзывы помогают нашей команде становиться лучше, чтобы продолжать радовать вас</p>
   </div>
-  <div class="reviews__track-wrap">
-    <div class="reviews__track" id="reviewsTrack">
-      {% for review in pagedata.reviews %}
-      <div class="review-card">
-        <div class="review-card__top">
-          <div class="review-card__avatar">{{ review.avatar }}</div>
-          <div>
-            <div class="review-card__name">{{ review.name }}</div>
-            <div class="review-card__stars">
-              {% for i in range(0, review.rating) %}★{% endfor %}
+  <div class="reviews__slider-outer">
+    <button class="reviews__arrow" id="reviewsPrev" aria-label="Предыдущие">
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M9 1L1 9l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="reviews__overflow">
+      <div class="reviews__track" id="reviewsTrack">
+        {% for review in pagedata.reviews %}
+        <div class="review-card">
+          <div class="review-card__logo">
+            <span class="review-card__logo-y">Я</span><span class="review-card__logo-t">ндекс</span>
+          </div>
+          <div class="review-card__top">
+            <div class="review-card__avatar">{{ review.avatar }}</div>
+            <div>
+              <div class="review-card__name">{{ review.name }}</div>
+              <div class="review-card__stars">{% for i in range(0, review.rating) %}★{% endfor %}</div>
             </div>
           </div>
-          <div class="review-card__source review-card__source--{{ review.source }}">
-            {% if review.source === "yandex" %}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FC3F1D"/><text x="6" y="17" font-size="14" fill="white" font-family="Arial" font-weight="bold">Я</text></svg>
-            {% else %}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#00B956"/><text x="5" y="17" font-size="11" fill="white" font-family="Arial" font-weight="bold">2Гис</text></svg>
-            {% endif %}
-          </div>
+          <p class="review-card__text">{{ review.text }}</p>
         </div>
-        <p class="review-card__text">{{ review.text }}</p>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
+    <button class="reviews__arrow" id="reviewsNext" aria-label="Следующие">
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none"><path d="M1 1l8 8-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
-  <div class="reviews__controls">
-    <button class="reviews__btn" id="reviewsPrev" aria-label="Назад">←</button>
-    <button class="reviews__btn" id="reviewsNext" aria-label="Вперёд">→</button>
+  <div class="reviews__dots" id="reviewsDots"></div>
+  {% if site.reviewsWidgetUrl %}
+  <div class="reviews__all-wrap">
+    <a href="{{ site.reviewsWidgetUrl | replace('maps-reviews-widget/', 'maps/org/') | replace('?comments', '/reviews/') }}" target="_blank" rel="noopener" class="btn btn--outline">Читать все отзывы</a>
   </div>
+  {% endif %}
 </section>
+
+<!-- MAP -->
+{% if site.yandexMapsEmbed %}
+<section class="index-map">
+  <iframe src="{{ site.yandexMapsEmbed }}" width="100%" height="100%" frameborder="0" allowfullscreen loading="lazy"></iframe>
+</section>
+{% endif %}
 
 <!-- ADVANTAGES -->
 <section class="advantages">
   <div class="advantages__inner">
     <div class="advantages__header">
-      <h2 class="section-title">// О нашем детейлинге</h2>
-      <p>{{ site.name }} заработала доверие наших уважаемых клиентов из-за ряда причин, которые делают нас отличным выбором для профессиональных услуг по детейлингу.</p>
+      <h2 class="section-title">// О нашей студии</h2>
+      {% if pagedata.advantagesDesc %}<p>{{ pagedata.advantagesDesc }}</p>{% endif %}
     </div>
     <div class="advantages__grid">
       {% for adv in pagedata.advantages %}

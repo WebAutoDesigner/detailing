@@ -1,13 +1,17 @@
 const { directusFetch, downloadImg } = require('../lib/directus');
 
+const SITE_ID = process.env.SITE_ID || 'broklands';
+const F = `filter[site_id][_eq]=${SITE_ID}`;
+
 module.exports = async function () {
   try {
-    const slides    = await directusFetch('/items/hero_slides?sort=sort&fields=*');
-    const stats     = await directusFetch('/items/stats?sort=sort&fields=*');
-    const services  = await directusFetch('/items/services?sort=sort&fields=id,slug,title,image');
-    const reviews   = await directusFetch('/items/reviews?sort=sort&fields=*');
-    const advantages= await directusFetch('/items/advantages?sort=sort&fields=*');
-    const works     = await directusFetch('/items/works?sort=sort&fields=*');
+    const slides    = await directusFetch(`/items/hero_slides?sort=sort&${F}&filter[page][_null]=true&fields=*`);
+    const worksHeroRes = await directusFetch(`/items/hero_slides?${F}&filter[page][_eq]=nashi-raboty&limit=1&fields=*`);
+    const stats     = await directusFetch(`/items/stats?sort=sort&${F}&fields=*`);
+    const services  = await directusFetch(`/items/services?sort=sort&${F}&fields=id,slug,title,image`);
+    const reviews   = await directusFetch(`/items/reviews?sort=sort&${F}&fields=*`);
+    const advantages= await directusFetch(`/items/advantages?sort=sort&${F}&fields=*`);
+    const works     = await directusFetch(`/items/works?sort=sort&${F}&fields=*`);
 
     const heroSlides = await Promise.all((slides.data || []).map(async (s, i) => ({
       title:       s.title    || '',
@@ -30,6 +34,14 @@ module.exports = async function () {
 
     const servicesMap = serviceCards.reduce((acc, s) => { acc[s.slug] = s; return acc; }, {});
 
+    const worksHeroRaw = (worksHeroRes.data || [])[0];
+    const worksHero = worksHeroRaw ? {
+      title:    worksHeroRaw.title    || '',
+      subtitle: worksHeroRaw.subtitle || '',
+      bg:       await downloadImg(worksHeroRaw.image,        '/images/cta-bg.jpg', 'width=1920&quality=85'),
+      bgMobile: await downloadImg(worksHeroRaw.image_mobile, '', 'width=768&quality=80'),
+    } : null;
+
     return {
       hero: { slides: heroSlides },
       stats: (stats.data || []).map(s => ({ value: s.value || '', label: s.label || '' })),
@@ -42,19 +54,21 @@ module.exports = async function () {
         source: r.source         || 'yandex',
         avatar: r.avatar_initial || '',
       })),
-      advantages: (advantages.data || []).map(a => ({
+      advantagesDesc: (advantages.data || []).map(a => a.section_desc).find(Boolean) || '',
+      advantages: (advantages.data || []).filter(a => a.icon).map(a => ({
         title: a.title       || '',
         desc:  a.description || '',
         icon:  a.icon        || '',
       })),
       works: workImgs,
+      worksHero,
       worksHeroBg: '/images/hero-1.jpg',
     };
   } catch (err) {
     console.error('[pagedata.js] Directus fetch failed:', err.message);
     return {
       hero: { slides: [] }, stats: [], services: [], reviews: [],
-      advantages: [], works: [], worksHeroBg: '/images/hero-1.jpg',
+      advantages: [], works: [], worksHero: null, worksHeroBg: '/images/hero-1.jpg',
     };
   }
 };
